@@ -48,6 +48,20 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PersonalAssistant.Client\PersonalAssistant.Client.csproj">
+      <Project>{F69F6CA9-CEED-4EC5-A141-761BF3A75614}</Project>
+      <Name>PersonalAssistant.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalAssistant.Common\PersonalAssistant.Common.csproj">
+      <Project>{AD7329BD-160C-4404-9224-B6143DC1319F}</Project>
+      <Name>PersonalAssistant.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalAssistant.Services.Internal\PersonalAssistant.Services.Internal.csproj">
+      <Project>{8634D3C8-C66D-46C2-B6DD-CDEA15D75D08}</Project>
+      <Name>PersonalAssistant.Services.Internal</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

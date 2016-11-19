@@ -31,16 +31,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JadeLeap">
+      <HintPath>..\Libs\JadeLeap.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net35\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="vjslib" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agents\HotelProviderAgent.cs" />
+    <Compile Include="ServiceProviderAgent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Agents\" />
     <Folder Include="Behaviours\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PersonalAssistant.Common\PersonalAssistant.Common.csproj">
+      <Project>{AD7329BD-160C-4404-9224-B6143DC1319F}</Project>
+      <Name>PersonalAssistant.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalAssistant.Services.Common\PersonalAssistant.Services.Common.csproj">
+      <Project>{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}</Project>
+      <Name>PersonalAssistant.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalAssistant.Services.DataContract\PersonalAssistant.Services.DataContract.csproj">
+      <Project>{56D62665-E97D-4A14-A6D1-1BF425891760}</Project>
+      <Name>PersonalAssistant.Services.DataContract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -31,9 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JadeLeap">
+      <HintPath>..\Libs\JadeLeap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="vjslib" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources.cs" />
