@@ -5,6 +5,22 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Console.Startup", "PersonalAssistant.Console.Startup\PersonalAssistant.Console.Startup.csproj", "{E77EAB4E-B0B2-4C44-AD6F-24E035AC389C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{B3993590-79E6-4BF3-9B82-C26844CCCB38}"
+	ProjectSection(SolutionItems) = preProject
+		Libs\JadeLeap.dll = Libs\JadeLeap.dll
+		Libs\vjslib.dll = Libs\vjslib.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.Internal", "PersonalAssistant.Services.Internal\PersonalAssistant.Services.Internal.csproj", "{8634D3C8-C66D-46C2-B6DD-CDEA15D75D08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.Common", "PersonalAssistant.Services.Common\PersonalAssistant.Services.Common.csproj", "{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Client", "PersonalAssistant.Client\PersonalAssistant.Client.csproj", "{F69F6CA9-CEED-4EC5-A141-761BF3A75614}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Common", "PersonalAssistant.Common\PersonalAssistant.Common.csproj", "{AD7329BD-160C-4404-9224-B6143DC1319F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.External", "PersonalAssistant.Services.External\PersonalAssistant.Services.External.csproj", "{2BB589EC-B766-4C9A-8BB4-A0D46B6F3401}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +31,26 @@ Global
 		{E77EAB4E-B0B2-4C44-AD6F-24E035AC389C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E77EAB4E-B0B2-4C44-AD6F-24E035AC389C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E77EAB4E-B0B2-4C44-AD6F-24E035AC389C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8634D3C8-C66D-46C2-B6DD-CDEA15D75D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8634D3C8-C66D-46C2-B6DD-CDEA15D75D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8634D3C8-C66D-46C2-B6DD-CDEA15D75D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8634D3C8-C66D-46C2-B6DD-CDEA15D75D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F69F6CA9-CEED-4EC5-A141-761BF3A75614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F69F6CA9-CEED-4EC5-A141-761BF3A75614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F69F6CA9-CEED-4EC5-A141-761BF3A75614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F69F6CA9-CEED-4EC5-A141-761BF3A75614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD7329BD-160C-4404-9224-B6143DC1319F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD7329BD-160C-4404-9224-B6143DC1319F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD7329BD-160C-4404-9224-B6143DC1319F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD7329BD-160C-4404-9224-B6143DC1319F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB589EC-B766-4C9A-8BB4-A0D46B6F3401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB589EC-B766-4C9A-8BB4-A0D46B6F3401}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB589EC-B766-4C9A-8BB4-A0D46B6F3401}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB589EC-B766-4C9A-8BB4-A0D46B6F3401}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

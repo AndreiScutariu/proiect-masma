@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PersonalAssistant.Console.Startup
+﻿namespace PersonalAssistant.Console.Startup
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            
         }
     }
 }
