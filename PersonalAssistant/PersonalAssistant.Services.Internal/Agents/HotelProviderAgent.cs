@@ -20,7 +20,8 @@ namespace PersonalAssistant.Services.Internal.Agents
         {
             base.setup();
 
-            SendMessage(Resources.ServiceProviderAdress, new FindMyServicesRequest {CorrelationId = new Guid(), ServiceType = ServiceType.Hotel});
+            SendMessage(Resources.ServiceProviderAdress,
+                new FindMyServicesRequest {CorrelationId = new Guid(), ServiceType = ServiceType.Hotel});
         }
 
         #region Messaging
