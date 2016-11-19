@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using jade.core;
 using Newtonsoft.Json;
 using PersonalAssistant.Common.Agents;
@@ -16,12 +17,24 @@ namespace PersonalAssistant.Services.Internal.Agents
     {
         public List<HotelServiceInformation> Services;
 
+        private Func<string, HotelServiceInformation> Deserializer
+            => JsonConvert.DeserializeObject<HotelServiceInformation>;
+
         public override void setup()
         {
             base.setup();
 
-            SendMessage(Resources.ServiceProviderAdress,
-                new FindMyServicesRequest {CorrelationId = new Guid(), ServiceType = ServiceType.Hotel});
+            DoRequestForInitialServices();
+        }
+
+        private void DoRequestForInitialServices()
+        {
+            Services = new List<HotelServiceInformation>();
+
+            var serviceProviderAddress = ServiceLocator.Find("__ServiceProvider", this).First();
+            var message = new FindMyServicesRequest {CorrelationId = new Guid(), ServiceType = ServiceType.Hotel};
+
+            SendMessage(serviceProviderAddress, message);
         }
 
         #region Messaging
@@ -41,10 +54,12 @@ namespace PersonalAssistant.Services.Internal.Agents
 
         public void Handle(ServicesFoundResponse message, AID sender)
         {
-            foreach (var information in message.ServicesInformation)
+            foreach (var hotelServiceInformation in message.ServicesInformation.Select(Deserializer))
             {
-                Services.Add(JsonConvert.DeserializeObject<HotelServiceInformation>(information));
+                Services.Add(hotelServiceInformation);
             }
+
+            Console.WriteLine($"I have {Services.Count} services.");
         }
 
         public void Handle(NewServicesFound message, AID sender)

@@ -21,9 +21,11 @@ namespace PersonalAssistant.Services.Internal
         {
             base.setup();
 
+            _services = new List<Service>();
+
             addBehaviour(new RefreshServicesCacheBehaviour(this));
 
-            _services = new List<Service>();
+            ServiceLocator.Register("__ServiceProvider", this);
         }
 
         public void ClearExistingServices()
