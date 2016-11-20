@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using jade.core;
 using PersonalAssistant.Client;
+using PersonalAssistant.Client.Agents;
 using PersonalAssistant.Common;
 using PersonalAssistant.Services.Internal.Agents;
 using PersonalAssistant.Services.Internal.ServiceFinder;

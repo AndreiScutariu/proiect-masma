@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.External.Transport", "PersonalAssistant.Services.External.Transport\PersonalAssistant.Services.External.Transport.csproj", "{2756F039-3A5C-4C42-95F7-4964E3C75BD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.External.DataContract", "PersonalAssistant.Services.External.DataContract\PersonalAssistant.Services.External.DataContract.csproj", "{A0242DFF-666E-456D-8619-45E549BDCE1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{2756F039-3A5C-4C42-95F7-4964E3C75BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2756F039-3A5C-4C42-95F7-4964E3C75BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2756F039-3A5C-4C42-95F7-4964E3C75BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0242DFF-666E-456D-8619-45E549BDCE1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0242DFF-666E-456D-8619-45E549BDCE1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0242DFF-666E-456D-8619-45E549BDCE1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0242DFF-666E-456D-8619-45E549BDCE1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

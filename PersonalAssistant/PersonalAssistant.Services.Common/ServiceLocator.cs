@@ -8,6 +8,7 @@ namespace PersonalAssistant.Services.Common
     //TODO - Reimplement this to use timeouts, and implement a load balancer
     public class ServiceLocator
     {
+        //TODO - Refactor to support list of service names
         public static List<AID> Find(string serviceName, Agent myAgent)
         {
             var providers = new List<AID>();

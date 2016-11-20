@@ -26,7 +26,6 @@ namespace PersonalAssistant.Services.Internal.Agents.Base
 
         public void Handle(NewServicesFound message, AID sender)
         {
-            ////TODO - Append the new services
         }
 
         public void Handle(ServicesFoundResponse message, AID sender)
