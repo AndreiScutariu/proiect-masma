@@ -5,6 +5,7 @@ using PersonalAssistant.Common;
 using PersonalAssistant.Common.Behaviours;
 using PersonalAssistant.Services.Internal;
 using PersonalAssistant.Services.Internal.Agents;
+using PersonalAssistant.Services.Internal.ServiceFinder;
 using AgentContainer = jade.wrapper.AgentContainer;
 
 namespace PersonalAssistant.Console.Startup
@@ -23,7 +24,7 @@ namespace PersonalAssistant.Console.Startup
             var mc = CreateAgentContainer();
             var agentBuilder = new AgentBuilder(mc);
 
-            var serviceProvider = agentBuilder.Create<ServiceProviderAgent>().Build();
+            var serviceProvider = agentBuilder.Create<ServiceFinderAgent>().Build();
             serviceProvider.start();
 
             Thread.Sleep(2000);

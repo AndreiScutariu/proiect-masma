@@ -45,7 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agents\HotelProviderAgent.cs" />
-    <Compile Include="ServiceProviderAgent.cs" />
+    <Compile Include="Agents\ServiceProviderBaseAgent.cs" />
+    <Compile Include="Interfaces\INeedToRegisterInServiceLocator.cs" />
+    <Compile Include="ServiceFinder\Behaviours\RefreshServicesCacheBehaviour.cs" />
+    <Compile Include="ServiceFinder\ServiceFinderAgent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
