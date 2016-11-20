@@ -38,8 +38,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Requests\INeedServicesAggregatorRequest.cs" />
     <Compile Include="Contracts\Requests\INeedServicesRequest.cs" />
-    <Compile Include="Messages\Client\NeedServicesRequest.cs" />
+    <Compile Include="Messages\Client\FoundHotelServicesResponse.cs" />
+    <Compile Include="Messages\Client\FoundTransportServicesResponse.cs" />
+    <Compile Include="Messages\Client\NeedServicesAggregatorRequest.cs" />
     <Compile Include="Contracts\Requests\INeedHotelServicesRequest.cs" />
     <Compile Include="Contracts\Requests\INeedTouristAttractionRequest.cs" />
     <Compile Include="Contracts\Requests\INeedTransportServicesRequest.cs" />
@@ -53,6 +56,10 @@
     <ProjectReference Include="..\PersonalAssistant.Common\PersonalAssistant.Common.csproj">
       <Project>{AD7329BD-160C-4404-9224-B6143DC1319F}</Project>
       <Name>PersonalAssistant.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalAssistant.Services.DataContract\PersonalAssistant.Services.DataContract.csproj">
+      <Project>{56D62665-E97D-4A14-A6D1-1BF425891760}</Project>
+      <Name>PersonalAssistant.Services.DataContract</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

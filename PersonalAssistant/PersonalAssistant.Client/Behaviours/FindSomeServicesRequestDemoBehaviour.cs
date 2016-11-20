@@ -16,7 +16,7 @@ namespace PersonalAssistant.Client.Behaviours
 
         public override void action()
         {
-            var needServicesRequest = new NeedServicesRequest
+            var needServicesRequest = new NeedServicesAggregatorRequest
             {
                 NumberOfStars = new Range<int> {Min = 1, Max = 2}
             };

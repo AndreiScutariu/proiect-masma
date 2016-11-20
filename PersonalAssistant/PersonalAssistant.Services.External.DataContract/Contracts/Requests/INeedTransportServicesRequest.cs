@@ -1,6 +1,7 @@
 ﻿namespace PersonalAssistant.Services.External.DataContract.Contracts.Requests
 {
-    public interface INeedTransportServicesRequest
+    public interface INeedTransportServicesRequest : INeedServicesRequest
     {
+        string YourLocation { get; set; }
     }
 }
