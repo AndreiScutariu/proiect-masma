@@ -1,6 +1,5 @@
 ﻿using System.Threading;
 using jade.core;
-using PersonalAssistant.Client;
 using PersonalAssistant.Client.Agents;
 using PersonalAssistant.Common;
 using PersonalAssistant.Services.Internal.Agents;
@@ -27,15 +26,19 @@ namespace PersonalAssistant.Console.Startup
             serviceProvider.start();
 
             Thread.Sleep(2000);
-
-            var client = agentBuilder.Create<ClientAgent>().Build();
-            client.start();
+            System.Console.WriteLine();
 
             var hotelAgent = agentBuilder.Create<HotelProviderAgent>().Build();
             hotelAgent.start();
 
             var transportAgent = agentBuilder.Create<TransportProviderAgent>().Build();
             transportAgent.start();
+
+            Thread.Sleep(2000);
+            System.Console.WriteLine();
+
+            var client = agentBuilder.Create<ClientAgent>().Build();
+            client.start();
         }
     }
 }

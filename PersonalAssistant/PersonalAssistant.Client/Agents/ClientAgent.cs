@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using jade.core;
 using PersonalAssistant.Client.Behaviours;
-using PersonalAssistant.Client.Interfaces;
 using PersonalAssistant.Common.Agents;
+using PersonalAssistant.Common.Agents.Interfaces;
 using PersonalAssistant.Services.Common;
 
 namespace PersonalAssistant.Client.Agents

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using jade.core;
 
-namespace PersonalAssistant.Client.Interfaces
+namespace PersonalAssistant.Common.Agents.Interfaces
 {
     public interface IHaveServiceProviders
     {

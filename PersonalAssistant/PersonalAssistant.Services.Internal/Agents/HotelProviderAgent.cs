@@ -1,9 +1,8 @@
-﻿using jade.core;
-using PersonalAssistant.Common.Agents;
+﻿using System;
+using jade.core;
 using PersonalAssistant.Common.Agents.Interfaces;
 using PersonalAssistant.Services.DataContract;
 using PersonalAssistant.Services.DataContract.ServiceInformation;
-using PersonalAssistant.Services.External.DataContract.Contracts;
 using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
 using PersonalAssistant.Services.Internal.Agents.Base;
 
@@ -18,6 +17,7 @@ namespace PersonalAssistant.Services.Internal.Agents
 
         public void Handle(INeedHotelServicesRequest message, AID sender)
         {
+            Console.WriteLine($"{ServiceName} - Handle a request.");
         }
 
         public override void Handle(object message, AID sender)

@@ -30,10 +30,21 @@ namespace PersonalAssistant.Common.Agents
                 addBehaviour(instance);
             }
 
+            InitializeMyDependencies();
+        }
+
+        private void InitializeMyDependencies()
+        {
             var myType = GetType();
+
             if (typeof (INeedToRegisterInServiceLocator).IsAssignableFrom(myType))
             {
                 (this as INeedToRegisterInServiceLocator)?.RegisterInTheServiceLocator();
+            }
+
+            if (typeof (IHaveServiceProviders).IsAssignableFrom(myType))
+            {
+                (this as IHaveServiceProviders)?.FindMyServiceProviders();
             }
         }
 
