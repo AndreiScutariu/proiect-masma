@@ -16,7 +16,7 @@ namespace PersonalAssistant.Common.Agents
 
         public abstract void Handle(object message, AID sender);
 
-        protected void SendMessage(AID to, object info, int type = ACLMessage.REQUEST)
+        public void SendMessage(AID to, object info, int type = ACLMessage.REQUEST)
         {
             var reply = new ACLMessage(type);
             var receiverAid = new AID(to.getLocalName(), AID.ISLOCALNAME);

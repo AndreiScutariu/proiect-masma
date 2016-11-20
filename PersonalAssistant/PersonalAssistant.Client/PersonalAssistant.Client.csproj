@@ -43,7 +43,7 @@
     <Compile Include="Agents\ClientAgent.cs" />
     <Compile Include="Interfaces\IHaveServiceProviders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Behaviours\SendRequestBehaviour.cs" />
+    <Compile Include="Behaviours\FindSomeServicesRequestDemoBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PersonalAssistant.Common\PersonalAssistant.Common.csproj">
@@ -53,6 +53,10 @@
     <ProjectReference Include="..\PersonalAssistant.Services.Common\PersonalAssistant.Services.Common.csproj">
       <Project>{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}</Project>
       <Name>PersonalAssistant.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalAssistant.Services.External.DataContract\PersonalAssistant.Services.External.DataContract.csproj">
+      <Project>{A0242DFF-666E-456D-8619-45E549BDCE1A}</Project>
+      <Name>PersonalAssistant.Services.External.DataContract</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

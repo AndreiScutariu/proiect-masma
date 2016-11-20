@@ -14,7 +14,7 @@ namespace PersonalAssistant.Client.Agents
         {
             base.setup();
 
-            addBehaviour(new SendRequestBehaviour(this));
+            addBehaviour(new FindSomeServicesRequestDemoBehaviour(this));
         }
 
         public List<AID> Providers { get; set; }
