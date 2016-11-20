@@ -38,11 +38,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\Requests\INeedServicesAggregatorRequest.cs" />
-    <Compile Include="Contracts\Requests\INeedServicesRequest.cs" />
-    <Compile Include="Messages\Client\FoundHotelServicesResponse.cs" />
-    <Compile Include="Messages\Client\FoundTransportServicesResponse.cs" />
-    <Compile Include="Messages\Client\NeedServicesAggregatorRequest.cs" />
+    <Compile Include="Contracts\Requests\IAggregateServicesRequest.cs" />
+    <Compile Include="Contracts\Requests\Base\INeedServicesRequest.cs" />
+    <Compile Include="Contracts\Responses\FoundHotelServicesResponse.cs" />
+    <Compile Include="Contracts\Responses\FoundTransportServicesResponse.cs" />
+    <Compile Include="Messages\Client\AggregateServicesRequest.cs" />
     <Compile Include="Contracts\Requests\INeedHotelServicesRequest.cs" />
     <Compile Include="Contracts\Requests\INeedTouristAttractionRequest.cs" />
     <Compile Include="Contracts\Requests\INeedTransportServicesRequest.cs" />
@@ -62,9 +62,7 @@
       <Name>PersonalAssistant.Services.DataContract</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\Responses\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -29,7 +29,7 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
             private static Func<TransportServiceInformation, bool> YourLocationPredicate(
                 INeedTransportServicesRequest message)
             {
-                if (message.YourLocation == null)
+                if (string.IsNullOrEmpty(message.YourLocation))
                 {
                     return x => true;
                 }

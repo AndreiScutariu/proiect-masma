@@ -1,20 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using jade.core;
 using PersonalAssistant.Client.Behaviours;
 using PersonalAssistant.Common.Agents;
 using PersonalAssistant.Common.Agents.Interfaces;
 using PersonalAssistant.Services.Common;
+using PersonalAssistant.Services.External.DataContract.Contracts.Responses;
 
 namespace PersonalAssistant.Client.Agents
 {
     public class ClientAgent : ReceiveMessagesAgent,
-        IHaveServiceProviders
+        IHaveServiceProviders,
+        IHandleMessages<FoundHotelServicesResponse>,
+        IHandleMessages<FoundTransportServicesResponse>
     {
-        public override void setup()
+        public void Handle(FoundHotelServicesResponse message, AID sender)
         {
-            base.setup();
+            foreach (var hotel in message.Hotels)
+            {
+                Console.WriteLine($"Found Hotel: {hotel.Description}, {hotel.NumberOfStars}.");
+            }
+        }
 
-            addBehaviour(new FindSomeServicesRequestDemoBehaviour(this));
+        public void Handle(FoundTransportServicesResponse message, AID sender)
+        {
+            foreach (var transport in message.Tranports)
+            {
+                Console.WriteLine($"Found Transport: {transport.Description}, {transport.YourLocation}.");
+            }
         }
 
         public List<AID> Providers { get; set; }
@@ -27,9 +40,24 @@ namespace PersonalAssistant.Client.Agents
             Providers.AddRange(ServiceLocator.Find("__HotelService", this));
         }
 
+        public override void setup()
+        {
+            base.setup();
+
+            addBehaviour(new FindSomeServicesRequestDemoBehaviour(this));
+        }
+
         public override void Handle(object message, AID sender)
         {
+            if (message is FoundHotelServicesResponse)
+            {
+                Handle((FoundHotelServicesResponse) message, sender);
+            }
 
+            if (message is FoundTransportServicesResponse)
+            {
+                Handle((FoundTransportServicesResponse) message, sender);
+            }
         }
     }
 }

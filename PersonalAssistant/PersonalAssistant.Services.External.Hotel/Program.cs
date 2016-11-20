@@ -14,6 +14,7 @@ namespace PersonalAssistant.Services.External.Hotel
             //get information about new service
             var hotelServiceInformation = new HotelServiceInformation
             {
+                Name = "Hotel 1",
                 Description = "Some hotel service",
                 Location = "Location 1",
                 NumberOfStars = 3,

@@ -14,6 +14,7 @@ namespace PersonalAssistant.Services.External.Transport
             //get information about new service
             var information = new TransportServiceInformation
             {
+                Name = "Transport 1",
                 Description = "Some transport service",
                 Location = "Destination",
                 Price = 400,

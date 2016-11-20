@@ -16,10 +16,11 @@ namespace PersonalAssistant.Client.Behaviours
 
         public override void action()
         {
-            var needServicesRequest = new NeedServicesAggregatorRequest
+            var needServicesRequest = new AggregateServicesRequest
             {
                 NumberOfStars = new Range<int> {Min = 1, Max = 3},
-                Price = new Range<int> {Min = 100, Max = 300}
+                Price = new Range<int> {Min = 100, Max = 300},
+                YourLocation = "Home Location 2"
             };
 
             foreach (var provider in _clientAgent.Providers)

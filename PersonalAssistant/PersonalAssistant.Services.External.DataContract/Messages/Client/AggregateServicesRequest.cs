@@ -3,7 +3,7 @@ using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
 
 namespace PersonalAssistant.Services.External.DataContract.Messages.Client
 {
-    public class NeedServicesAggregatorRequest : HeaderMessage, INeedServicesAggregatorRequest
+    public class AggregateServicesRequest : HeaderMessage, IAggregateServicesRequest
     {
         public Range<int> NumberOfStars { get; set; }
 

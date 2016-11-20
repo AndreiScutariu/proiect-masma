@@ -4,6 +4,7 @@ using PersonalAssistant.Common.Agents.Interfaces;
 using PersonalAssistant.Services.DataContract;
 using PersonalAssistant.Services.DataContract.ServiceInformation;
 using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
+using PersonalAssistant.Services.External.DataContract.Contracts.Responses;
 using PersonalAssistant.Services.External.DataContract.Messages.Client;
 using PersonalAssistant.Services.Internal.Agents.Base;
 using PersonalAssistant.Services.Internal.Agents.QueryBuilder;
@@ -19,9 +20,12 @@ namespace PersonalAssistant.Services.Internal.Agents
 
         public void Handle(INeedHotelServicesRequest message, AID sender)
         {
+            var hotelServiceInformations = Services.GetFor(message).ToList();
+
             SendMessage(sender, new FoundHotelServicesResponse
             {
-                Hotels = Services.GetFor(message).ToList()
+                CorrelationId = message.CorrelationId,
+                Hotels = hotelServiceInformations
             });
         }
 

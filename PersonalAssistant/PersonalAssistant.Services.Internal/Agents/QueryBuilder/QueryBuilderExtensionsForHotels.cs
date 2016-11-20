@@ -33,7 +33,7 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
                     return x => true;
                 }
 
-                return x => x.NumberOfStars < message.NumberOfStars.Max && x.NumberOfStars > message.NumberOfStars.Min;
+                return x => x.NumberOfStars <= message.NumberOfStars.Max && x.NumberOfStars >= message.NumberOfStars.Min;
             }
 
             public static IEnumerable<Func<HotelServiceInformation, bool>> GetFor(INeedHotelServicesRequest message)
