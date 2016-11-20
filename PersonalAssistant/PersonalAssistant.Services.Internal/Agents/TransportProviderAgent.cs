@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Linq;
 using jade.core;
 using PersonalAssistant.Common.Agents.Interfaces;
 using PersonalAssistant.Services.DataContract;
 using PersonalAssistant.Services.DataContract.ServiceInformation;
 using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
+using PersonalAssistant.Services.External.DataContract.Messages.Client;
 using PersonalAssistant.Services.Internal.Agents.Base;
+using PersonalAssistant.Services.Internal.Agents.QueryBuilder;
 
 namespace PersonalAssistant.Services.Internal.Agents
 {
@@ -17,7 +20,10 @@ namespace PersonalAssistant.Services.Internal.Agents
 
         public void Handle(INeedTransportServicesRequest message, AID sender)
         {
-            Console.WriteLine($"{ServiceName} - Handle a request.");
+            SendMessage(sender, new FoundTransportServicesResponse
+            {
+                Tranports = Services.GetFor(message).ToList()
+            });
         }
 
         public override void Handle(object message, AID sender)

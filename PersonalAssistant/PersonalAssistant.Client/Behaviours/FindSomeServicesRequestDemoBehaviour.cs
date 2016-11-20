@@ -18,7 +18,8 @@ namespace PersonalAssistant.Client.Behaviours
         {
             var needServicesRequest = new NeedServicesAggregatorRequest
             {
-                NumberOfStars = new Range<int> {Min = 1, Max = 2}
+                NumberOfStars = new Range<int> {Min = 1, Max = 3},
+                Price = new Range<int> {Min = 100, Max = 300}
             };
 
             foreach (var provider in _clientAgent.Providers)
