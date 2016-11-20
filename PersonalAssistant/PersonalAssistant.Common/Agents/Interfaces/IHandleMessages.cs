@@ -1,6 +1,6 @@
 using jade.core;
 
-namespace PersonalAssistant.Common.Agents
+namespace PersonalAssistant.Common.Agents.Interfaces
 {
     public interface IHandleMessages<in T>
     {

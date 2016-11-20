@@ -38,18 +38,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\INeedServicesRequest.cs" />
-    <Compile Include="Services\INeedHotelServicesRequest.cs" />
-    <Compile Include="Services\INeedTouristAttractionRequest.cs" />
-    <Compile Include="Services\INeedTransportServicesRequest.cs" />
+    <Compile Include="Contracts\Requests\INeedServicesRequest.cs" />
+    <Compile Include="Messages\Client\NeedServicesRequest.cs" />
+    <Compile Include="Contracts\Requests\INeedHotelServicesRequest.cs" />
+    <Compile Include="Contracts\Requests\INeedTouristAttractionRequest.cs" />
+    <Compile Include="Contracts\Requests\INeedTransportServicesRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Range.cs" />
+    <Compile Include="Messages\Services\NeedHotelServicesRequest.cs" />
+    <Compile Include="Messages\Services\NeedTouristAttractionRequest.cs" />
+    <Compile Include="Messages\Services\NeedTransportServicesRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PersonalAssistant.Common\PersonalAssistant.Common.csproj">
       <Project>{AD7329BD-160C-4404-9224-B6143DC1319F}</Project>
       <Name>PersonalAssistant.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\Responses\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

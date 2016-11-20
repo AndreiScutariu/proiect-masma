@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using jade.core;
 using jade.core.behaviours;
 using PersonalAssistant.Common.Agents.Interfaces;
@@ -13,9 +14,8 @@ namespace PersonalAssistant.Common.Agents
 
             var arguments = getArguments();
 
-            foreach (var argument in arguments)
+            foreach (var type in arguments.Cast<Type>())
             {
-                var type = (Type) argument;
                 Behaviour instance;
 
                 if (typeof (INeedSpecificAgent).IsAssignableFrom(type))

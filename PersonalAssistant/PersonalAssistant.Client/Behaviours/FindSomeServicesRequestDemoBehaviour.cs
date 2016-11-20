@@ -1,7 +1,7 @@
 ﻿using jade.core.behaviours;
 using PersonalAssistant.Client.Agents;
 using PersonalAssistant.Services.External.DataContract;
-using PersonalAssistant.Services.External.DataContract.Client;
+using PersonalAssistant.Services.External.DataContract.Messages.Client;
 
 namespace PersonalAssistant.Client.Behaviours
 {

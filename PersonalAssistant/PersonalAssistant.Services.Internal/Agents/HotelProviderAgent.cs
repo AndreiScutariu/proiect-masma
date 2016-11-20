@@ -1,8 +1,10 @@
 ﻿using jade.core;
 using PersonalAssistant.Common.Agents;
+using PersonalAssistant.Common.Agents.Interfaces;
 using PersonalAssistant.Services.DataContract;
 using PersonalAssistant.Services.DataContract.ServiceInformation;
-using PersonalAssistant.Services.External.DataContract.Services;
+using PersonalAssistant.Services.External.DataContract.Contracts;
+using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
 using PersonalAssistant.Services.Internal.Agents.Base;
 
 namespace PersonalAssistant.Services.Internal.Agents

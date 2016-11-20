@@ -1,11 +1,8 @@
 ﻿using PersonalAssistant.Common.Messages;
+using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
 
-namespace PersonalAssistant.Services.External.DataContract.Services
+namespace PersonalAssistant.Services.External.DataContract.Messages.Services
 {
-    public interface INeedTransportServicesRequest
-    {
-    }
-
     public class NeedTransportServicesRequest : HeaderMessage, INeedTransportServicesRequest
     {
     }

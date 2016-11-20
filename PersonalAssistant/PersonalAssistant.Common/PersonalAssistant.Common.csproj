@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="AgentBuilder.cs" />
     <Compile Include="Agents\BaseAgent.cs" />
-    <Compile Include="Agents\IHandleMessages.cs" />
+    <Compile Include="Agents\Interfaces\IHandleMessages.cs" />
     <Compile Include="Agents\Interfaces\INeedSpecificAgent.cs" />
     <Compile Include="Agents\Interfaces\INeedToRegisterInServiceLocator.cs" />
     <Compile Include="Agents\ReceiveMessagesAgent.cs" />
