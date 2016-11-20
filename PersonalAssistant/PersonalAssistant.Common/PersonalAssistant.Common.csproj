@@ -48,6 +48,7 @@
     <Compile Include="Agents\BaseAgent.cs" />
     <Compile Include="Agents\IHandleMessages.cs" />
     <Compile Include="Agents\Interfaces\INeedSpecificAgent.cs" />
+    <Compile Include="Agents\Interfaces\INeedToRegisterInServiceLocator.cs" />
     <Compile Include="Agents\ReceiveMessagesAgent.cs" />
     <Compile Include="MessageDeserializer.cs" />
     <Compile Include="Messages\HeaderMessage.cs" />

@@ -2,8 +2,6 @@
 using jade.core;
 using PersonalAssistant.Client;
 using PersonalAssistant.Common;
-using PersonalAssistant.Common.Behaviours;
-using PersonalAssistant.Services.Internal;
 using PersonalAssistant.Services.Internal.Agents;
 using PersonalAssistant.Services.Internal.ServiceFinder;
 using AgentContainer = jade.wrapper.AgentContainer;
@@ -34,6 +32,8 @@ namespace PersonalAssistant.Console.Startup
 
             var hotelAgent = agentBuilder.Create<HotelProviderAgent>().Build();
             hotelAgent.start();
+
+            System.Console.WriteLine();
         }
     }
 }

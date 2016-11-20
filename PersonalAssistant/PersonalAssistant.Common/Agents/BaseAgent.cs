@@ -29,16 +29,24 @@ namespace PersonalAssistant.Common.Agents
 
                 addBehaviour(instance);
             }
+
+            var myType = GetType();
+            if (typeof (INeedToRegisterInServiceLocator).IsAssignableFrom(myType))
+            {
+                (this as INeedToRegisterInServiceLocator)?.RegisterInTheServiceLocator();
+            }
         }
 
         protected void LogMyDetails()
         {
-            Console.WriteLine("I'm " + getLocalName() + " and I'm living in " + getContainerController().getContainerName());
+            Console.WriteLine("I'm " + getLocalName() + " and I'm living in " +
+                              getContainerController().getContainerName());
         }
 
         public override void takeDown()
         {
-            Console.WriteLine("Agent " + getLocalName() + " is being removed from " + getContainerController().getContainerName() + "... \n");
+            Console.WriteLine("Agent " + getLocalName() + " is being removed from " +
+                              getContainerController().getContainerName() + "... \n");
         }
     }
 }

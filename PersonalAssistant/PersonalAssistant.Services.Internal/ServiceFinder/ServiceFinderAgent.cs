@@ -2,9 +2,9 @@
 using System.Linq;
 using jade.core;
 using PersonalAssistant.Common.Agents;
+using PersonalAssistant.Common.Agents.Interfaces;
 using PersonalAssistant.Services.Common;
 using PersonalAssistant.Services.DataContract.Messages;
-using PersonalAssistant.Services.Internal.Interfaces;
 using PersonalAssistant.Services.Internal.ServiceFinder.Behaviours;
 using Service = PersonalAssistant.Services.DataContract.Service;
 
@@ -34,7 +34,7 @@ namespace PersonalAssistant.Services.Internal.ServiceFinder
             }
         }
 
-        public void Register()
+        public void RegisterInTheServiceLocator()
         {
             ServiceLocator.Register("__ServiceFinder", this);
         }
