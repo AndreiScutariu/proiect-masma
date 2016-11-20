@@ -19,8 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Client", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Common", "PersonalAssistant.Common\PersonalAssistant.Common.csproj", "{AD7329BD-160C-4404-9224-B6143DC1319F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.External", "PersonalAssistant.Services.External\PersonalAssistant.Services.External.csproj", "{2BB589EC-B766-4C9A-8BB4-A0D46B6F3401}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.DataContract", "PersonalAssistant.Services.DataContract\PersonalAssistant.Services.DataContract.csproj", "{56D62665-E97D-4A14-A6D1-1BF425891760}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceRegistration", "ServiceRegistration", "{BC0BF904-E3EC-4D26-8A9E-19174E29D1B4}"
@@ -57,10 +55,6 @@ Global
 		{AD7329BD-160C-4404-9224-B6143DC1319F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD7329BD-160C-4404-9224-B6143DC1319F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD7329BD-160C-4404-9224-B6143DC1319F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2BB589EC-B766-4C9A-8BB4-A0D46B6F3401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BB589EC-B766-4C9A-8BB4-A0D46B6F3401}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BB589EC-B766-4C9A-8BB4-A0D46B6F3401}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BB589EC-B766-4C9A-8BB4-A0D46B6F3401}.Release|Any CPU.Build.0 = Release|Any CPU
 		{56D62665-E97D-4A14-A6D1-1BF425891760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{56D62665-E97D-4A14-A6D1-1BF425891760}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56D62665-E97D-4A14-A6D1-1BF425891760}.Release|Any CPU.ActiveCfg = Release|Any CPU
