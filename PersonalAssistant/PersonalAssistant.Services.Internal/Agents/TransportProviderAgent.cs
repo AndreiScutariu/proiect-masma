@@ -5,11 +5,11 @@ using PersonalAssistant.Services.Internal.Agents.Base;
 
 namespace PersonalAssistant.Services.Internal.Agents
 {
-    public class HotelProviderAgent : ServiceProviderAgent<HotelServiceInformation>
+    public class TransportProviderAgent : ServiceProviderAgent<TransportServiceInformation>
     {
-        protected override ServiceType ServiceType => ServiceType.Hotel;
+        protected override ServiceType ServiceType => ServiceType.Transport;
 
-        protected override string ServiceName => "__HotelService";
+        protected override string ServiceName => "__TransportService";
 
         public override void Handle(object message, AID sender)
         {

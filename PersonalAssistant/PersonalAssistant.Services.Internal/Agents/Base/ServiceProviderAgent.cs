@@ -4,13 +4,15 @@ using System.Linq;
 using jade.core;
 using Newtonsoft.Json;
 using PersonalAssistant.Common.Agents;
+using PersonalAssistant.Common.Agents.Interfaces;
 using PersonalAssistant.Services.Common;
 using PersonalAssistant.Services.DataContract;
 using PersonalAssistant.Services.DataContract.Messages;
 
-namespace PersonalAssistant.Services.Internal.Agents
+namespace PersonalAssistant.Services.Internal.Agents.Base
 {
-    public abstract class ServiceProviderBaseAgent<T> : ReceiveMessagesAgent,
+    public abstract class ServiceProviderAgent<T> : ReceiveMessagesAgent,
+        INeedToRegisterInServiceLocator,
         IHandleMessages<ServicesFoundResponse>,
         IHandleMessages<NewServicesFound>
     {
@@ -24,6 +26,7 @@ namespace PersonalAssistant.Services.Internal.Agents
 
         public void Handle(NewServicesFound message, AID sender)
         {
+            ////TODO - Append the new services
         }
 
         public void Handle(ServicesFoundResponse message, AID sender)
@@ -33,7 +36,12 @@ namespace PersonalAssistant.Services.Internal.Agents
                 Services.Add(hotelServiceInformation);
             }
 
-            Console.WriteLine($"I have {Services.Count} services.");
+            Console.WriteLine($"{ServiceName}: I have {Services.Count} services.");
+        }
+
+        public void RegisterInTheServiceLocator()
+        {
+            ServiceLocator.Register(ServiceName, this);
         }
 
         public override void Handle(object message, AID sender)

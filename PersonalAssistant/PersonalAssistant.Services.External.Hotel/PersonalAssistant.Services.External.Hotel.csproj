@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{56D62665-E97D-4A14-A6D1-1BF425891760}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{40D3A9EF-705E-46EE-B2A5-D2D8DF84E1D9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PersonalAssistant.Services.DataContract</RootNamespace>
-    <AssemblyName>PersonalAssistant.Services.DataContract</AssemblyName>
+    <RootNamespace>PersonalAssistant.Services.External.Hotel</RootNamespace>
+    <AssemblyName>PersonalAssistant.Services.External.Hotel</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,26 +33,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net20\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\ServiceInformation.cs" />
-    <Compile Include="Messages\FindMyServicesRequest.cs" />
-    <Compile Include="Messages\NewServicesFound.cs" />
-    <Compile Include="Messages\ServicesFoundResponse.cs" />
-    <Compile Include="ServiceInformation\AccomodationServiceInformation.cs" />
-    <Compile Include="ServiceInformation\HotelServiceInformation.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service.cs" />
-    <Compile Include="ServiceInformation\TransportServiceInformation.cs" />
-    <Compile Include="ServiceType.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PersonalAssistant.Common\PersonalAssistant.Common.csproj">
-      <Project>{AD7329BD-160C-4404-9224-B6143DC1319F}</Project>
-      <Name>PersonalAssistant.Common</Name>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PersonalAssistant.Services.Common\PersonalAssistant.Services.Common.csproj">
+      <Project>{1f93e2bb-0a14-435e-a65f-30bf2b8e737c}</Project>
+      <Name>PersonalAssistant.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalAssistant.Services.DataContract\PersonalAssistant.Services.DataContract.csproj">
+      <Project>{56d62665-e97d-4a14-a6d1-1bf425891760}</Project>
+      <Name>PersonalAssistant.Services.DataContract</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

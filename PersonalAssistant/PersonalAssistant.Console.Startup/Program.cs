@@ -33,7 +33,8 @@ namespace PersonalAssistant.Console.Startup
             var hotelAgent = agentBuilder.Create<HotelProviderAgent>().Build();
             hotelAgent.start();
 
-            System.Console.WriteLine();
+            var transportAgent = agentBuilder.Create<TransportProviderAgent>().Build();
+            transportAgent.start();
         }
     }
 }
