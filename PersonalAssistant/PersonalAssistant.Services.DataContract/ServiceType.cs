@@ -4,6 +4,6 @@
     {
         Hotel = 1,
         Transport = 2,
-        Accomodation = 3
+        TouristAttraction = 3
     }
 }
