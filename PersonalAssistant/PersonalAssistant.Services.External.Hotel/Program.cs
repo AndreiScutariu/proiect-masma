@@ -13,7 +13,6 @@ namespace PersonalAssistant.Services.External.Hotel
         {
             Console.WriteLine("Enter the name of hotel: ");
 
-            //get information about new service
             var hotelServiceInformation = new HotelServiceInformation
             {
                 Name = "Hotel 1",
@@ -23,7 +22,6 @@ namespace PersonalAssistant.Services.External.Hotel
                 Price = 100
             };
 
-            //register the new service
             var service = RegisterService(hotelServiceInformation);
 
             Console.WriteLine("Register new service");

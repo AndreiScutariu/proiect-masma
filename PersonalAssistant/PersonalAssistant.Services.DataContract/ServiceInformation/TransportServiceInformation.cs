@@ -4,7 +4,6 @@ namespace PersonalAssistant.Services.DataContract.ServiceInformation
 
     public class TransportServiceInformation : Base.ServiceInformation
     {
-        [Label(Value = "Enter the start point of the location service: ")]
         public string YourLocation { get; set; }
     }
 }

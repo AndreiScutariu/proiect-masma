@@ -11,7 +11,6 @@ namespace PersonalAssistant.Services.External.Transport
     {
         private static void Main(string[] args)
         {
-            //get information about new service
             var information = new TransportServiceInformation
             {
                 Name = "Transport 1",
@@ -21,7 +20,6 @@ namespace PersonalAssistant.Services.External.Transport
                 YourLocation = "Home Location"
             };
 
-            //register the new service
             var service = RegisterService(information);
 
             Console.WriteLine("Register new service");
