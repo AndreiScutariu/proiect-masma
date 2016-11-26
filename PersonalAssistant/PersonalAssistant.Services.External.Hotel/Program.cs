@@ -11,6 +11,8 @@ namespace PersonalAssistant.Services.External.Hotel
     {
         private static void Main(string[] args)
         {
+            Console.WriteLine("Enter the name of hotel: ");
+
             //get information about new service
             var hotelServiceInformation = new HotelServiceInformation
             {

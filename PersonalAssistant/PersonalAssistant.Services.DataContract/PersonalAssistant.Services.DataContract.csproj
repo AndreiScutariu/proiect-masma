@@ -36,6 +36,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\LabelAttribute.cs" />
     <Compile Include="Base\ServiceInformation.cs" />
     <Compile Include="Messages\FindMyServicesRequest.cs" />
     <Compile Include="Messages\NewServicesFound.cs" />
