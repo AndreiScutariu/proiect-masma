@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Console.Startup", "PersonalAssistant.Console.Startup\PersonalAssistant.Console.Startup.csproj", "{E77EAB4E-B0B2-4C44-AD6F-24E035AC389C}"
 EndProject
@@ -30,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.External.DataContract", "PersonalAssistant.Services.External.DataContract\PersonalAssistant.Services.External.DataContract.csproj", "{A0242DFF-666E-456D-8619-45E549BDCE1A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Client.UI", "PersonalAssistant.Client.UI\PersonalAssistant.Client.UI.csproj", "{619958E8-6CA0-4D64-88AD-F63EB57FB0B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.External.TouristAttraction", "PersonalAssistant.Services.External.TouristAttraction\PersonalAssistant.Services.External.TouristAttraction.csproj", "{D9986900-B3F7-4372-B2B1-29FF432A621A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{619958E8-6CA0-4D64-88AD-F63EB57FB0B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{619958E8-6CA0-4D64-88AD-F63EB57FB0B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{619958E8-6CA0-4D64-88AD-F63EB57FB0B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9986900-B3F7-4372-B2B1-29FF432A621A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9986900-B3F7-4372-B2B1-29FF432A621A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9986900-B3F7-4372-B2B1-29FF432A621A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9986900-B3F7-4372-B2B1-29FF432A621A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,5 +90,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{40D3A9EF-705E-46EE-B2A5-D2D8DF84E1D9} = {BC0BF904-E3EC-4D26-8A9E-19174E29D1B4}
 		{2756F039-3A5C-4C42-95F7-4964E3C75BD8} = {BC0BF904-E3EC-4D26-8A9E-19174E29D1B4}
+		{D9986900-B3F7-4372-B2B1-29FF432A621A} = {BC0BF904-E3EC-4D26-8A9E-19174E29D1B4}
 	EndGlobalSection
 EndGlobal

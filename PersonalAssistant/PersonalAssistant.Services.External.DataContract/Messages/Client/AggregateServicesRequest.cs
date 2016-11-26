@@ -1,4 +1,5 @@
-﻿using PersonalAssistant.Common.Messages;
+﻿using System;
+using PersonalAssistant.Common.Messages;
 using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
 
 namespace PersonalAssistant.Services.External.DataContract.Messages.Client
@@ -14,5 +15,9 @@ namespace PersonalAssistant.Services.External.DataContract.Messages.Client
         public Range<int> Price { get; set; }
 
         public string YourLocation { get; set; }
+
+        public Range<DateTime?> EventDate { get; set; }
+
+        public string ActivityType { get; set; }
     }
 }

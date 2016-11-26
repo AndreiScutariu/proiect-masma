@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace PersonalAssistant.Client.UI
 {
@@ -14,7 +15,6 @@ namespace PersonalAssistant.Client.UI
 
         public void SetupDefaultValues()
         {
-
             transportStartDateTimePicker.Value = DateTime.Today;
             transportEndDateTimePicker.Value = DateTime.Today.AddDays(3);
 
@@ -60,7 +60,10 @@ namespace PersonalAssistant.Client.UI
             var transportTypes = transportCheckedListBoxType.CheckedItems;
             var transportFromCountry = transportFromCountryTxtBox.Text;
             var transportFromCity = transportFromCityTxtBox.Text;
-            
+
+            // Get items from check as a list
+            var listOfTranports = transportTypes.OfType<string>();
+
             // Recreation items
             var countryEvents = recreationTextBoxCountry.Text;
             var cityEvents = recreationTextBoxCity.Text;

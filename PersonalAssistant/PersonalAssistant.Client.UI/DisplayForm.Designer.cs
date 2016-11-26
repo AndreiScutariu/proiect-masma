@@ -314,7 +314,7 @@
             // labelRecreationStartDate
             // 
             this.labelRecreationStartDate.AutoSize = true;
-            this.labelRecreationStartDate.Location = new System.Drawing.Point(64, 453);
+            this.labelRecreationStartDate.Location = new System.Drawing.Point(66, 453);
             this.labelRecreationStartDate.Name = "labelRecreationStartDate";
             this.labelRecreationStartDate.Size = new System.Drawing.Size(55, 13);
             this.labelRecreationStartDate.TabIndex = 26;

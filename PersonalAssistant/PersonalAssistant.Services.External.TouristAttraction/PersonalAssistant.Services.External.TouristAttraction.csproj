@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A0242DFF-666E-456D-8619-45E549BDCE1A}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{D9986900-B3F7-4372-B2B1-29FF432A621A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PersonalAssistant.Services.External.DataContract</RootNamespace>
-    <AssemblyName>PersonalAssistant.Services.External.DataContract</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>PersonalAssistant.Services.External.TouristAttraction</RootNamespace>
+    <AssemblyName>PersonalAssistant.Services.External.TouristAttraction</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,40 +33,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\Requests\IAggregateServicesRequest.cs" />
-    <Compile Include="Contracts\Requests\Base\INeedServicesRequest.cs" />
-    <Compile Include="Contracts\Responses\FoundHotelServicesResponse.cs" />
-    <Compile Include="Contracts\Responses\FoundTouristAttractionServicesResponse.cs" />
-    <Compile Include="Contracts\Responses\FoundTransportServicesResponse.cs" />
-    <Compile Include="Messages\Client\AggregateServicesRequest.cs" />
-    <Compile Include="Contracts\Requests\INeedHotelServicesRequest.cs" />
-    <Compile Include="Contracts\Requests\INeedTouristAttractionServicesRequest.cs" />
-    <Compile Include="Contracts\Requests\INeedTransportServicesRequest.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Range.cs" />
-    <Compile Include="Messages\Services\NeedHotelServicesRequest.cs" />
-    <Compile Include="Messages\Services\NeedTouristAttractionServicesRequest.cs" />
-    <Compile Include="Messages\Services\NeedTransportServicesRequest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PersonalAssistant.Common\PersonalAssistant.Common.csproj">
-      <Project>{AD7329BD-160C-4404-9224-B6143DC1319F}</Project>
-      <Name>PersonalAssistant.Common</Name>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PersonalAssistant.Services.Common\PersonalAssistant.Services.Common.csproj">
+      <Project>{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}</Project>
+      <Name>PersonalAssistant.Services.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\PersonalAssistant.Services.DataContract\PersonalAssistant.Services.DataContract.csproj">
       <Project>{56D62665-E97D-4A14-A6D1-1BF425891760}</Project>
       <Name>PersonalAssistant.Services.DataContract</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
