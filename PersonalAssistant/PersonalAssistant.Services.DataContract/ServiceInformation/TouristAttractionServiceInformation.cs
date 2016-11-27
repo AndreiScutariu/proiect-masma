@@ -6,8 +6,10 @@ namespace PersonalAssistant.Services.DataContract.ServiceInformation
 
     public class TouristAttractionServiceInformation : ServiceInformation
     {
-        public DateTime EventDate { get; set; }
-
         public string ActivityType { get; set; }
+
+        public DateTime DateStart { get; set; }
+
+        public DateTime DateEnd { get; set; }
     }
 }
