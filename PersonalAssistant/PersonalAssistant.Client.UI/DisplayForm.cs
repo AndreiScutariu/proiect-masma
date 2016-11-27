@@ -81,8 +81,8 @@ namespace PersonalAssistant.Client.UI
                     Min = transportStartDateTimePicker.Text != null ? DateTime.Parse(transportStartDateTimePicker.Text) : (DateTime?)null,
                     Max = transportEndDateTimePicker.Text != null ? DateTime.Parse(transportEndDateTimePicker.Text) : (DateTime?)null,
                 },
-                NumberOfRooms = Int32.Parse(transportTextBoxNoRooms.Text),
-                NumberOfPeoplePerRoom = Int32.Parse(transportTextBoxPlpPerRoom.Text),
+                NumberOfRooms = transportTextBoxNoRooms.Text != null ? Int32.Parse(transportTextBoxNoRooms.Text) : (int?) null,
+                NumberOfPeoplePerRoom = transportTextBoxPlpPerRoom.Text != null ? Int32.Parse(transportTextBoxPlpPerRoom.Text) :(int?) null,
                 NumberOfStars = new Range<int?>
                 {
                     Min = transportTextBoxHotelStarsLow.Text != null ? Int32.Parse(transportTextBoxHotelStarsLow.Text) : (int?) null,
