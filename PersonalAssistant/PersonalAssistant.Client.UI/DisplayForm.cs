@@ -26,7 +26,7 @@ namespace PersonalAssistant.Client.UI
             transportEndDateTimePicker.MinDate = DateTime.Today;
             recreationStartDatePicker.MinDate = DateTime.Today;
             recreationEndDatePicker.MinDate = DateTime.Today;
-
+            
             transportStartDateTimePicker.Value = DateTime.Today;
             transportEndDateTimePicker.Value = DateTime.Today.AddDays(3);
 
