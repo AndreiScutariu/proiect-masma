@@ -8,12 +8,12 @@
 
     internal class FindSomeServicesRequestDemoBehaviour : OneShotBehaviour
     {
-        private readonly ClientAgent clientAgent;
+        private readonly ClientSearchVacantionPackageAgent clientSearchVacantionPackageAgent;
 
-        public FindSomeServicesRequestDemoBehaviour(ClientAgent clientAgent)
-            : base(clientAgent)
+        public FindSomeServicesRequestDemoBehaviour(ClientSearchVacantionPackageAgent clientSearchVacantionPackageAgent)
+            : base(clientSearchVacantionPackageAgent)
         {
-            this.clientAgent = clientAgent;
+            this.clientSearchVacantionPackageAgent = clientSearchVacantionPackageAgent;
         }
 
         public override void action()
@@ -25,9 +25,9 @@
                                               YourLocation = "Home Location 2"
                                           };
 
-            foreach (var provider in clientAgent.Providers)
+            foreach (var provider in clientSearchVacantionPackageAgent.Providers)
             {
-                clientAgent.SendMessage(provider, needServicesRequest);
+                clientSearchVacantionPackageAgent.SendMessage(provider, needServicesRequest);
             }
         }
     }

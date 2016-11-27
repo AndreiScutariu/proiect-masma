@@ -11,11 +11,13 @@
     using PersonalAssistant.Services.Common;
     using PersonalAssistant.Services.External.DataContract.Contracts.Responses;
 
-    public class ClientAgent : ReceiveMessagesAgent,
-                               IHaveServiceProviders,
-                               IHandleMessages<FoundHotelServicesResponse>,
-                               IHandleMessages<FoundTransportServicesResponse>
+    public class ClientSearchVacantionPackageAgent : ReceiveMessagesAgent,
+                                                     IHaveServiceProviders,
+                                                     IHandleMessages<FoundHotelServicesResponse>,
+                                                     IHandleMessages<FoundTransportServicesResponse>
     {
+
+
         public List<AID> Providers { get; set; }
 
         public void Handle(FoundHotelServicesResponse message, AID sender)
@@ -40,6 +42,7 @@
 
             Providers.AddRange(ServiceLocator.Find("__TransportService", this));
             Providers.AddRange(ServiceLocator.Find("__HotelService", this));
+            Providers.AddRange(ServiceLocator.Find("__TouristAttractionsService", this));
         }
 
         public override void setup()

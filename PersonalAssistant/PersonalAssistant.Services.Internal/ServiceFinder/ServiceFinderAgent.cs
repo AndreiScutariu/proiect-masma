@@ -17,7 +17,7 @@
                                       INeedToRegisterInServiceLocator,
                                       IHandleMessages<FindMyServicesRequest>
     {
-        private List<Service> _services;
+        private List<Service> services;
 
         public void Handle(FindMyServicesRequest message, AID sender)
         {
@@ -27,7 +27,7 @@
                     {
                         CorrelationId = message.CorrelationId,
                         ServicesInformation =
-                            _services.Where(service => service.ServiceType == message.ServiceType)
+                            services.Where(service => service.ServiceType == message.ServiceType)
                             .Select(service => service.ServiceInformation)
                             .ToList()
                     });
@@ -50,19 +50,19 @@
         {
             base.setup();
 
-            _services = new List<Service>();
+            services = new List<Service>();
 
             addBehaviour(new RefreshServicesCacheBehaviour(this));
         }
 
         public void ClearExistingServices()
         {
-            _services.Clear();
+            services.Clear();
         }
 
         public void RegisterNewService(Service service)
         {
-            _services.Add(service);
+            services.Add(service);
         }
     }
 }

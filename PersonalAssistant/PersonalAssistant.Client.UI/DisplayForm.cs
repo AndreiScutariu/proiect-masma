@@ -1,9 +1,12 @@
-﻿using System;
-using System.Linq;
-
-namespace PersonalAssistant.Client.UI
+﻿namespace PersonalAssistant.Client.UI
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Windows.Forms;
+
+    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
+    using PersonalAssistant.Services.External.DataContract.Messages.Client;
 
     public partial class DisplayForm : Form
     {
@@ -13,6 +16,8 @@ namespace PersonalAssistant.Client.UI
             SetupDefaultValues();
         }
 
+        public Action<IAggregateServicesRequest> SearchActionAgentCallback { get; set; }
+
         public void SetupDefaultValues()
         {
             transportStartDateTimePicker.Value = DateTime.Today;
@@ -21,7 +26,7 @@ namespace PersonalAssistant.Client.UI
             recreationStartDatePicker.Value = DateTime.Today;
             recreationEndDatePicker.Value = DateTime.Today.AddDays(3);
         }
-        
+
         public void DoEvents()
         {
             Application.DoEvents();
@@ -29,21 +34,10 @@ namespace PersonalAssistant.Client.UI
 
         public void AddTextLine(string s)
         {
-            textBoxMessages.AppendText(s + Environment.NewLine);
+            Invoke((MethodInvoker)delegate { textBoxMessages.AppendText(s + Environment.NewLine); });
         }
 
-        private void FormAgent_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0); // closes all open forms and exits the application
-        }
-
-        private void buttonSeach_Click(object sender, EventArgs e)
-        {
-            ReadInfoFromForm();
-            // create agents
-        }
-
-        public void ReadInfoFromForm()
+        public IAggregateServicesRequest BuildRequestFromInputs()
         {
             // Location
             var country = transportTextBoxCountry.Text;
@@ -62,7 +56,7 @@ namespace PersonalAssistant.Client.UI
             var transportFromCity = transportFromCityTxtBox.Text;
 
             // Get items from check as a list
-            var listOfTranports = transportTypes.OfType<string>();
+            IEnumerable<string> listOfTranports = transportTypes.OfType<string>();
 
             // Recreation items
             var countryEvents = recreationTextBoxCountry.Text;
@@ -70,6 +64,8 @@ namespace PersonalAssistant.Client.UI
             var startDateEvents = recreationStartDatePicker.Text;
             var endDateEvents = recreationEndDatePicker.Text;
             var eventsType = recreationCheckedListBoxActivities.CheckedItems;
+
+            return new AggregateServicesRequest();
         }
 
         public void ClearAllValues()
@@ -82,7 +78,7 @@ namespace PersonalAssistant.Client.UI
             transportTextBoxHotelStars.Clear();
             transportTextBoxPriceLowRange.Clear();
             transportTextBoxPriceHighRange.Clear();
-            
+
             // Transportation
             transportCheckedListBoxType.ClearSelected();
             transportFromCountryTxtBox.Clear();
@@ -96,7 +92,19 @@ namespace PersonalAssistant.Client.UI
             recreationCheckedListBoxActivities.ClearSelected();
         }
 
-        private void buttonClear_Click(object sender, EventArgs e)
+        private void FormAgentFormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0); // closes all open forms and exits the application
+        }
+
+        private void ButtonSeachClick(object sender, EventArgs e)
+        {
+            var request = BuildRequestFromInputs();
+
+            SearchActionAgentCallback(request);
+        }
+
+        private void ButtonClearClick(object sender, EventArgs e)
         {
             ClearAllValues();
         }

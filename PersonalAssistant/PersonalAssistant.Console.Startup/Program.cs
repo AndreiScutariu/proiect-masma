@@ -5,7 +5,7 @@
 
     using jade.core;
 
-    using PersonalAssistant.Client.Agents;
+    using PersonalAssistant.Client.UI.Agents;
     using PersonalAssistant.Common;
     using PersonalAssistant.Services.Internal.Agents;
     using PersonalAssistant.Services.Internal.ServiceFinder;
@@ -41,7 +41,7 @@
             Thread.Sleep(2000);
             Console.WriteLine();
 
-            var client = agentBuilder.Create<ClientAgent>().Build();
+            var client = agentBuilder.Create<ClientSearchVacantionPackageAgent>().Build();
             client.start();
         }
     }

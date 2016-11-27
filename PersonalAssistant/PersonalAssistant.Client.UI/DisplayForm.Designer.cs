@@ -378,7 +378,7 @@
             this.buttonSeach.TabIndex = 36;
             this.buttonSeach.Text = "Search";
             this.buttonSeach.UseVisualStyleBackColor = true;
-            this.buttonSeach.Click += new System.EventHandler(this.buttonSeach_Click);
+            this.buttonSeach.Click += new System.EventHandler(this.ButtonSeachClick);
             // 
             // buttonClear
             // 
@@ -388,7 +388,7 @@
             this.buttonClear.TabIndex = 37;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            this.buttonClear.Click += new System.EventHandler(this.ButtonClearClick);
             // 
             // label1
             // 

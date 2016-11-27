@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JadeLeap">
+      <HintPath>..\Libs\JadeLeap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,8 +44,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="vjslib" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agents\ClientSearchVacantionPackageAgent.cs" />
+    <Compile Include="Behaviours\WinFormRefreshBehaviour.cs" />
     <Compile Include="DisplayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PersonalAssistant.Common\PersonalAssistant.Common.csproj">
+      <Project>{AD7329BD-160C-4404-9224-B6143DC1319F}</Project>
+      <Name>PersonalAssistant.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalAssistant.Services.Common\PersonalAssistant.Services.Common.csproj">
+      <Project>{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}</Project>
+      <Name>PersonalAssistant.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalAssistant.Services.DataContract\PersonalAssistant.Services.DataContract.csproj">
+      <Project>{56d62665-e97d-4a14-a6d1-1bf425891760}</Project>
+      <Name>PersonalAssistant.Services.DataContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalAssistant.Services.External.DataContract\PersonalAssistant.Services.External.DataContract.csproj">
+      <Project>{A0242DFF-666E-456D-8619-45E549BDCE1A}</Project>
+      <Name>PersonalAssistant.Services.External.DataContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersonalAssistant.Services.Internal\PersonalAssistant.Services.Internal.csproj">
+      <Project>{8634D3C8-C66D-46C2-B6DD-CDEA15D75D08}</Project>
+      <Name>PersonalAssistant.Services.Internal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
