@@ -11,7 +11,7 @@ namespace PersonalAssistant.Services.External.DataContract.Messages.Services
 
         public string Location { get; set; }
 
-        public Range<int> Price { get; set; }
+        public Range<int?> Price { get; set; }
 
         public string YourCountry { get; set; }
 

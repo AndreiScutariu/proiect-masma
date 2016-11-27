@@ -36,12 +36,12 @@
             private static Func<TouristAttractionServiceInformation, bool> ActivityTypePredicate(
                 INeedTouristAttractionServicesRequest message)
             {
-                if (message.ActivityType == null)
+                if (!message.ActivityTypes.Any())
                 {
                     return x => true;
                 }
 
-                return x => x.ActivityType == message.ActivityType;
+                return x => message.ActivityTypes.ToList().Contains(x.ActivityType);
             }
         }
     }

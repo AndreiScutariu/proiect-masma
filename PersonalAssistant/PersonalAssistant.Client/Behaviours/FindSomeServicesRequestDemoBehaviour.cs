@@ -20,8 +20,8 @@
         {
             var needServicesRequest = new AggregateServicesRequest
                                           {
-                                              NumberOfStars = new Range<int> { Min = 1, Max = 3 },
-                                              Price = new Range<int> { Min = 100, Max = 300 },
+                                              NumberOfStars = new Range<int?> { Min = 1, Max = 3 },
+                                              Price = new Range<int?> { Min = 100, Max = 300 },
                                               HotelCountry = "Home Location 2"
                                           };
 

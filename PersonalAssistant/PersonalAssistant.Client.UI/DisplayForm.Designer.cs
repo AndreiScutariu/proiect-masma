@@ -49,10 +49,6 @@
             this.labelTransportType = new System.Windows.Forms.Label();
             this.mainLabelTransp = new System.Windows.Forms.Label();
             this.mainLabelRecreation = new System.Windows.Forms.Label();
-            this.recreationTextBoxCity = new System.Windows.Forms.TextBox();
-            this.recreationTextBoxCountry = new System.Windows.Forms.TextBox();
-            this.labelRecreationCity = new System.Windows.Forms.Label();
-            this.labelRecreationCountry = new System.Windows.Forms.Label();
             this.recreationEndDatePicker = new System.Windows.Forms.DateTimePicker();
             this.recreationStartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.labelRecreationEndDate = new System.Windows.Forms.Label();
@@ -250,43 +246,11 @@
             this.mainLabelRecreation.TabIndex = 21;
             this.mainLabelRecreation.Text = "Recreation search items";
             // 
-            // recreationTextBoxCity
-            // 
-            this.recreationTextBoxCity.Location = new System.Drawing.Point(207, 423);
-            this.recreationTextBoxCity.Name = "recreationTextBoxCity";
-            this.recreationTextBoxCity.Size = new System.Drawing.Size(101, 20);
-            this.recreationTextBoxCity.TabIndex = 25;
-            // 
-            // recreationTextBoxCountry
-            // 
-            this.recreationTextBoxCountry.Location = new System.Drawing.Point(208, 397);
-            this.recreationTextBoxCountry.Name = "recreationTextBoxCountry";
-            this.recreationTextBoxCountry.Size = new System.Drawing.Size(100, 20);
-            this.recreationTextBoxCountry.TabIndex = 24;
-            // 
-            // labelRecreationCity
-            // 
-            this.labelRecreationCity.AutoSize = true;
-            this.labelRecreationCity.Location = new System.Drawing.Point(67, 423);
-            this.labelRecreationCity.Name = "labelRecreationCity";
-            this.labelRecreationCity.Size = new System.Drawing.Size(24, 13);
-            this.labelRecreationCity.TabIndex = 23;
-            this.labelRecreationCity.Text = "City";
-            // 
-            // labelRecreationCountry
-            // 
-            this.labelRecreationCountry.AutoSize = true;
-            this.labelRecreationCountry.Location = new System.Drawing.Point(67, 401);
-            this.labelRecreationCountry.Name = "labelRecreationCountry";
-            this.labelRecreationCountry.Size = new System.Drawing.Size(43, 13);
-            this.labelRecreationCountry.TabIndex = 22;
-            this.labelRecreationCountry.Text = "Country";
-            // 
             // recreationEndDatePicker
             // 
             this.recreationEndDatePicker.CustomFormat = "dd-MM-yyyy";
             this.recreationEndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.recreationEndDatePicker.Location = new System.Drawing.Point(207, 474);
+            this.recreationEndDatePicker.Location = new System.Drawing.Point(207, 431);
             this.recreationEndDatePicker.MinDate = new System.DateTime(2016, 11, 14, 18, 54, 32, 0);
             this.recreationEndDatePicker.Name = "recreationEndDatePicker";
             this.recreationEndDatePicker.Size = new System.Drawing.Size(101, 20);
@@ -296,7 +260,7 @@
             // recreationStartDatePicker
             // 
             this.recreationStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.recreationStartDatePicker.Location = new System.Drawing.Point(207, 449);
+            this.recreationStartDatePicker.Location = new System.Drawing.Point(207, 406);
             this.recreationStartDatePicker.Name = "recreationStartDatePicker";
             this.recreationStartDatePicker.Size = new System.Drawing.Size(101, 20);
             this.recreationStartDatePicker.TabIndex = 28;
@@ -305,7 +269,7 @@
             // labelRecreationEndDate
             // 
             this.labelRecreationEndDate.AutoSize = true;
-            this.labelRecreationEndDate.Location = new System.Drawing.Point(66, 479);
+            this.labelRecreationEndDate.Location = new System.Drawing.Point(66, 436);
             this.labelRecreationEndDate.Name = "labelRecreationEndDate";
             this.labelRecreationEndDate.Size = new System.Drawing.Size(52, 13);
             this.labelRecreationEndDate.TabIndex = 27;
@@ -314,7 +278,7 @@
             // labelRecreationStartDate
             // 
             this.labelRecreationStartDate.AutoSize = true;
-            this.labelRecreationStartDate.Location = new System.Drawing.Point(66, 453);
+            this.labelRecreationStartDate.Location = new System.Drawing.Point(66, 410);
             this.labelRecreationStartDate.Name = "labelRecreationStartDate";
             this.labelRecreationStartDate.Size = new System.Drawing.Size(55, 13);
             this.labelRecreationStartDate.TabIndex = 26;
@@ -335,7 +299,7 @@
             // labelActivityTypes
             // 
             this.labelActivityTypes.AutoSize = true;
-            this.labelActivityTypes.Location = new System.Drawing.Point(67, 505);
+            this.labelActivityTypes.Location = new System.Drawing.Point(67, 462);
             this.labelActivityTypes.Name = "labelActivityTypes";
             this.labelActivityTypes.Size = new System.Drawing.Size(49, 13);
             this.labelActivityTypes.TabIndex = 31;
@@ -348,7 +312,7 @@
             "Tourist attractions",
             "Concerts",
             "Sports"});
-            this.recreationCheckedListBoxActivities.Location = new System.Drawing.Point(206, 504);
+            this.recreationCheckedListBoxActivities.Location = new System.Drawing.Point(206, 461);
             this.recreationCheckedListBoxActivities.Name = "recreationCheckedListBoxActivities";
             this.recreationCheckedListBoxActivities.Size = new System.Drawing.Size(120, 49);
             this.recreationCheckedListBoxActivities.TabIndex = 32;
@@ -460,10 +424,6 @@
             this.Controls.Add(this.recreationStartDatePicker);
             this.Controls.Add(this.labelRecreationEndDate);
             this.Controls.Add(this.labelRecreationStartDate);
-            this.Controls.Add(this.recreationTextBoxCity);
-            this.Controls.Add(this.recreationTextBoxCountry);
-            this.Controls.Add(this.labelRecreationCity);
-            this.Controls.Add(this.labelRecreationCountry);
             this.Controls.Add(this.mainLabelRecreation);
             this.Controls.Add(this.mainLabelTransp);
             this.Controls.Add(this.labelTransportType);
@@ -487,7 +447,6 @@
             this.Controls.Add(this.labelCountry);
             this.Name = "DisplayForm";
             this.Text = "Vacation Client";
-            this.FormClosing += this.FormAgentFormClosed;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,10 +475,6 @@
         private System.Windows.Forms.Label labelTransportType;
         private System.Windows.Forms.Label mainLabelTransp;
         private System.Windows.Forms.Label mainLabelRecreation;
-        private System.Windows.Forms.TextBox recreationTextBoxCity;
-        private System.Windows.Forms.TextBox recreationTextBoxCountry;
-        private System.Windows.Forms.Label labelRecreationCity;
-        private System.Windows.Forms.Label labelRecreationCountry;
         private System.Windows.Forms.DateTimePicker recreationEndDatePicker;
         private System.Windows.Forms.DateTimePicker recreationStartDatePicker;
         private System.Windows.Forms.Label labelRecreationEndDate;

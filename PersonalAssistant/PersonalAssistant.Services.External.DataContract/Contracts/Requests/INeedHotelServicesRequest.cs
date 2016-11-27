@@ -8,9 +8,11 @@ namespace PersonalAssistant.Services.External.DataContract.Contracts.Requests
     {
         string HotelCountry { get; set; }
 
-        Range<int> NumberOfStars { get; set; }
+        Range<int?> NumberOfStars { get; set; }
 
-        int NumberOfPeoplePerRoom { get; set; }
+        int? NumberOfPeoplePerRoom { get; set; }
+
+        int? NumberOfRooms { get; set; }
 
         Range<DateTime?> IntervalOfDays { get; set; }
     }
