@@ -15,5 +15,7 @@
         int? NumberOfRooms { get; set; }
 
         Range<DateTime?> IntervalOfDays { get; set; }
+
+        Range<int?> HotelPrice { get; set; }
     }
 }

@@ -12,5 +12,7 @@ namespace PersonalAssistant.Services.External.DataContract.Contracts.Requests
         Range<DateTime?> EventDate { get; set; }
 
         IEnumerable<string> ActivityTypes { get; set; }
+        
+        Range<int?> TouristAttractionsPrice { get; set; }
     }
 }

@@ -108,19 +108,19 @@
 
             private static Func<HotelServiceInformation, bool> HotelPricePredicate(INeedHotelServicesRequest message)
             {
-                if (message.Price == null || message.Price.Min == null && message.Price.Max == null)
+                if (message.HotelPrice == null || message.HotelPrice.Min == null && message.HotelPrice.Max == null)
                 {
                     return x => true;
                 }
-                else if (message.Price.Min == null && message.Price.Max != null)
+                else if (message.HotelPrice.Min == null && message.HotelPrice.Max != null)
                 {
-                    return x => message.Price.Max >= x.Price;
+                    return x => message.HotelPrice.Max >= x.Price;
                 }
-                else if (message.Price.Min != null && message.Price.Max == null)
+                else if (message.HotelPrice.Min != null && message.HotelPrice.Max == null)
                 {
-                    return x => message.Price.Min <= x.Price;
+                    return x => message.HotelPrice.Min <= x.Price;
                 }
-                return x => x.Price <= message.Price.Max && x.Price >= message.Price.Min;
+                return x => x.Price <= message.HotelPrice.Max && x.Price >= message.HotelPrice.Min;
             }
         }
     }

@@ -9,7 +9,5 @@
         string Description { get; set; }
 
         string Location { get; set; }
-
-        Range<int?> Price { get; set; }
     }
 }

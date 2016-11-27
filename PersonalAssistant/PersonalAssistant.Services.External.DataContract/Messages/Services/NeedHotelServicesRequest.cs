@@ -17,10 +17,11 @@ namespace PersonalAssistant.Services.External.Messages.Messages.Services
 
         public Range<DateTime?> IntervalOfDays { get; set; }
 
+        public Range<int?> HotelPrice { get; set; }
+
         public string Description { get; set; }
 
         public string Location { get; set; }
-
-        public Range<int?> Price { get; set; }
+        
     }
 }

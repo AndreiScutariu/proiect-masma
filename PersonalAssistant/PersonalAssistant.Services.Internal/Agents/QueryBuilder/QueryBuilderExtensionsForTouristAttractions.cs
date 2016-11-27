@@ -34,6 +34,7 @@
                 yield return ActivityTypePredicate(message);
                 yield return ActivityDatePredicate(message);
                 yield return LocationPredicate(message);
+                yield return ActivityPricePredicate(message);
             }
 
             private static Func<TouristAttractionServiceInformation, bool> ActivityTypePredicate(
@@ -72,6 +73,23 @@
                 }
 
                 return x => x.City == message.Location;
+            }
+
+            private static Func<TouristAttractionServiceInformation, bool> ActivityPricePredicate(INeedTouristAttractionServicesRequest message)
+            {
+                if (message.TouristAttractionsPrice == null || message.TouristAttractionsPrice.Min == null && message.TouristAttractionsPrice.Max == null)
+                {
+                    return x => true;
+                }
+                else if (message.TouristAttractionsPrice.Min == null && message.TouristAttractionsPrice.Max != null)
+                {
+                    return x => message.TouristAttractionsPrice.Max >= x.Price;
+                }
+                else if (message.TouristAttractionsPrice.Min != null && message.TouristAttractionsPrice.Max == null)
+                {
+                    return x => message.TouristAttractionsPrice.Min <= x.Price;
+                }
+                return x => x.Price <= message.TouristAttractionsPrice.Max && x.Price >= message.TouristAttractionsPrice.Min;
             }
         }
     }

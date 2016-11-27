@@ -10,13 +10,13 @@
         public string Description { get; set; }
 
         public string Location { get; set; }
-
-        public Range<int?> Price { get; set; }
-
+        
         public string YourCountry { get; set; }
 
         public string YourCity { get; set; }
 
         public IEnumerable<string> TransportTypes { get; set; }
+
+        public Range<int?> TransportPrice { get; set; }
     }
 }

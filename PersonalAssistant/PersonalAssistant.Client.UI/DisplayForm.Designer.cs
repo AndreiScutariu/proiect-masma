@@ -43,9 +43,9 @@
             this.labelHotelStars = new System.Windows.Forms.Label();
             this.transportTextBoxHotelStarsLow = new System.Windows.Forms.TextBox();
             this.labelPriceRange = new System.Windows.Forms.Label();
-            this.transportTextBoxPriceLowRange = new System.Windows.Forms.TextBox();
+            this.hotelTextBoxPriceLowRange = new System.Windows.Forms.TextBox();
             this.labelRange = new System.Windows.Forms.Label();
-            this.transportTextBoxPriceHighRange = new System.Windows.Forms.TextBox();
+            this.hotelTextBoxPriceHighRange = new System.Windows.Forms.TextBox();
             this.labelTransportType = new System.Windows.Forms.Label();
             this.mainLabelTransp = new System.Windows.Forms.Label();
             this.mainLabelRecreation = new System.Windows.Forms.Label();
@@ -66,6 +66,14 @@
             this.transportFromCityTxtBox = new System.Windows.Forms.TextBox();
             this.transportTextBoxHotelStarsHigh = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.transportPriceHighRange = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.transportPriceLowRange = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.activityPriceHighRange = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.activityPriceLowRange = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelCountry
@@ -190,16 +198,16 @@
             this.labelPriceRange.AutoSize = true;
             this.labelPriceRange.Location = new System.Drawing.Point(67, 242);
             this.labelPriceRange.Name = "labelPriceRange";
-            this.labelPriceRange.Size = new System.Drawing.Size(61, 13);
+            this.labelPriceRange.Size = new System.Drawing.Size(94, 13);
             this.labelPriceRange.TabIndex = 14;
-            this.labelPriceRange.Text = "Price range";
+            this.labelPriceRange.Text = "Hote Price Ramge";
             // 
-            // transportTextBoxPriceLowRange
+            // hotelTextBoxPriceLowRange
             // 
-            this.transportTextBoxPriceLowRange.Location = new System.Drawing.Point(208, 239);
-            this.transportTextBoxPriceLowRange.Name = "transportTextBoxPriceLowRange";
-            this.transportTextBoxPriceLowRange.Size = new System.Drawing.Size(100, 20);
-            this.transportTextBoxPriceLowRange.TabIndex = 15;
+            this.hotelTextBoxPriceLowRange.Location = new System.Drawing.Point(208, 239);
+            this.hotelTextBoxPriceLowRange.Name = "hotelTextBoxPriceLowRange";
+            this.hotelTextBoxPriceLowRange.Size = new System.Drawing.Size(100, 20);
+            this.hotelTextBoxPriceLowRange.TabIndex = 15;
             // 
             // labelRange
             // 
@@ -210,12 +218,12 @@
             this.labelRange.TabIndex = 16;
             this.labelRange.Text = "-";
             // 
-            // transportTextBoxPriceHighRange
+            // hotelTextBoxPriceHighRange
             // 
-            this.transportTextBoxPriceHighRange.Location = new System.Drawing.Point(330, 239);
-            this.transportTextBoxPriceHighRange.Name = "transportTextBoxPriceHighRange";
-            this.transportTextBoxPriceHighRange.Size = new System.Drawing.Size(100, 20);
-            this.transportTextBoxPriceHighRange.TabIndex = 17;
+            this.hotelTextBoxPriceHighRange.Location = new System.Drawing.Point(330, 239);
+            this.hotelTextBoxPriceHighRange.Name = "hotelTextBoxPriceHighRange";
+            this.hotelTextBoxPriceHighRange.Size = new System.Drawing.Size(100, 20);
+            this.hotelTextBoxPriceHighRange.TabIndex = 17;
             // 
             // labelTransportType
             // 
@@ -240,7 +248,7 @@
             // 
             this.mainLabelRecreation.AutoSize = true;
             this.mainLabelRecreation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainLabelRecreation.Location = new System.Drawing.Point(26, 378);
+            this.mainLabelRecreation.Location = new System.Drawing.Point(26, 412);
             this.mainLabelRecreation.Name = "mainLabelRecreation";
             this.mainLabelRecreation.Size = new System.Drawing.Size(161, 17);
             this.mainLabelRecreation.TabIndex = 21;
@@ -250,7 +258,7 @@
             // 
             this.recreationEndDatePicker.CustomFormat = "dd-MM-yyyy";
             this.recreationEndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.recreationEndDatePicker.Location = new System.Drawing.Point(207, 431);
+            this.recreationEndDatePicker.Location = new System.Drawing.Point(207, 465);
             this.recreationEndDatePicker.MinDate = new System.DateTime(2016, 11, 14, 18, 54, 32, 0);
             this.recreationEndDatePicker.Name = "recreationEndDatePicker";
             this.recreationEndDatePicker.Size = new System.Drawing.Size(101, 20);
@@ -260,7 +268,7 @@
             // recreationStartDatePicker
             // 
             this.recreationStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.recreationStartDatePicker.Location = new System.Drawing.Point(207, 406);
+            this.recreationStartDatePicker.Location = new System.Drawing.Point(207, 440);
             this.recreationStartDatePicker.Name = "recreationStartDatePicker";
             this.recreationStartDatePicker.Size = new System.Drawing.Size(101, 20);
             this.recreationStartDatePicker.TabIndex = 28;
@@ -269,7 +277,7 @@
             // labelRecreationEndDate
             // 
             this.labelRecreationEndDate.AutoSize = true;
-            this.labelRecreationEndDate.Location = new System.Drawing.Point(66, 436);
+            this.labelRecreationEndDate.Location = new System.Drawing.Point(66, 470);
             this.labelRecreationEndDate.Name = "labelRecreationEndDate";
             this.labelRecreationEndDate.Size = new System.Drawing.Size(52, 13);
             this.labelRecreationEndDate.TabIndex = 27;
@@ -278,7 +286,7 @@
             // labelRecreationStartDate
             // 
             this.labelRecreationStartDate.AutoSize = true;
-            this.labelRecreationStartDate.Location = new System.Drawing.Point(66, 410);
+            this.labelRecreationStartDate.Location = new System.Drawing.Point(66, 444);
             this.labelRecreationStartDate.Name = "labelRecreationStartDate";
             this.labelRecreationStartDate.Size = new System.Drawing.Size(55, 13);
             this.labelRecreationStartDate.TabIndex = 26;
@@ -286,6 +294,7 @@
             // 
             // transportCheckedListBoxType
             // 
+            this.transportCheckedListBoxType.CheckOnClick = true;
             this.transportCheckedListBoxType.FormattingEnabled = true;
             this.transportCheckedListBoxType.Items.AddRange(new object[] {
             "Air transportation",
@@ -295,11 +304,12 @@
             this.transportCheckedListBoxType.Name = "transportCheckedListBoxType";
             this.transportCheckedListBoxType.Size = new System.Drawing.Size(120, 49);
             this.transportCheckedListBoxType.TabIndex = 30;
+            this.transportCheckedListBoxType.UseCompatibleTextRendering = true;
             // 
             // labelActivityTypes
             // 
             this.labelActivityTypes.AutoSize = true;
-            this.labelActivityTypes.Location = new System.Drawing.Point(67, 462);
+            this.labelActivityTypes.Location = new System.Drawing.Point(67, 496);
             this.labelActivityTypes.Name = "labelActivityTypes";
             this.labelActivityTypes.Size = new System.Drawing.Size(49, 13);
             this.labelActivityTypes.TabIndex = 31;
@@ -307,12 +317,13 @@
             // 
             // recreationCheckedListBoxActivities
             // 
+            this.recreationCheckedListBoxActivities.CheckOnClick = true;
             this.recreationCheckedListBoxActivities.FormattingEnabled = true;
             this.recreationCheckedListBoxActivities.Items.AddRange(new object[] {
             "Tourist attractions",
             "Concerts",
             "Sports"});
-            this.recreationCheckedListBoxActivities.Location = new System.Drawing.Point(206, 461);
+            this.recreationCheckedListBoxActivities.Location = new System.Drawing.Point(206, 495);
             this.recreationCheckedListBoxActivities.Name = "recreationCheckedListBoxActivities";
             this.recreationCheckedListBoxActivities.Size = new System.Drawing.Size(120, 49);
             this.recreationCheckedListBoxActivities.TabIndex = 32;
@@ -336,7 +347,7 @@
             // 
             // buttonSeach
             // 
-            this.buttonSeach.Location = new System.Drawing.Point(151, 573);
+            this.buttonSeach.Location = new System.Drawing.Point(151, 576);
             this.buttonSeach.Name = "buttonSeach";
             this.buttonSeach.Size = new System.Drawing.Size(75, 23);
             this.buttonSeach.TabIndex = 36;
@@ -346,7 +357,7 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(232, 573);
+            this.buttonClear.Location = new System.Drawing.Point(232, 576);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(75, 23);
             this.buttonClear.TabIndex = 37;
@@ -402,11 +413,83 @@
             this.label3.TabIndex = 42;
             this.label3.Text = "-";
             // 
+            // transportPriceHighRange
+            // 
+            this.transportPriceHighRange.Location = new System.Drawing.Point(330, 378);
+            this.transportPriceHighRange.Name = "transportPriceHighRange";
+            this.transportPriceHighRange.Size = new System.Drawing.Size(100, 20);
+            this.transportPriceHighRange.TabIndex = 47;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(313, 381);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(10, 13);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "-";
+            // 
+            // transportPriceLowRange
+            // 
+            this.transportPriceLowRange.Location = new System.Drawing.Point(208, 378);
+            this.transportPriceLowRange.Name = "transportPriceLowRange";
+            this.transportPriceLowRange.Size = new System.Drawing.Size(100, 20);
+            this.transportPriceLowRange.TabIndex = 45;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(67, 381);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(114, 13);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Transport Price Range";
+            // 
+            // activityPriceHighRange
+            // 
+            this.activityPriceHighRange.Location = new System.Drawing.Point(327, 550);
+            this.activityPriceHighRange.Name = "activityPriceHighRange";
+            this.activityPriceHighRange.Size = new System.Drawing.Size(100, 20);
+            this.activityPriceHighRange.TabIndex = 51;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(310, 553);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(10, 13);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "-";
+            // 
+            // activityPriceLowRange
+            // 
+            this.activityPriceLowRange.Location = new System.Drawing.Point(205, 550);
+            this.activityPriceLowRange.Name = "activityPriceLowRange";
+            this.activityPriceLowRange.Size = new System.Drawing.Size(100, 20);
+            this.activityPriceLowRange.TabIndex = 49;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(64, 553);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 13);
+            this.label7.TabIndex = 48;
+            this.label7.Text = "Price range";
+            // 
             // DisplayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 633);
+            this.Controls.Add(this.activityPriceHighRange);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.activityPriceLowRange);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.transportPriceHighRange);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.transportPriceLowRange);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.transportTextBoxHotelStarsHigh);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.transportFromCityTxtBox);
@@ -427,9 +510,9 @@
             this.Controls.Add(this.mainLabelRecreation);
             this.Controls.Add(this.mainLabelTransp);
             this.Controls.Add(this.labelTransportType);
-            this.Controls.Add(this.transportTextBoxPriceHighRange);
+            this.Controls.Add(this.hotelTextBoxPriceHighRange);
             this.Controls.Add(this.labelRange);
-            this.Controls.Add(this.transportTextBoxPriceLowRange);
+            this.Controls.Add(this.hotelTextBoxPriceLowRange);
             this.Controls.Add(this.labelPriceRange);
             this.Controls.Add(this.transportTextBoxHotelStarsLow);
             this.Controls.Add(this.labelHotelStars);
@@ -447,6 +530,7 @@
             this.Controls.Add(this.labelCountry);
             this.Name = "DisplayForm";
             this.Text = "Vacation Client";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAgentFormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,9 +553,9 @@
         private System.Windows.Forms.Label labelHotelStars;
         private System.Windows.Forms.TextBox transportTextBoxHotelStarsLow;
         private System.Windows.Forms.Label labelPriceRange;
-        private System.Windows.Forms.TextBox transportTextBoxPriceLowRange;
+        private System.Windows.Forms.TextBox hotelTextBoxPriceLowRange;
         private System.Windows.Forms.Label labelRange;
-        private System.Windows.Forms.TextBox transportTextBoxPriceHighRange;
+        private System.Windows.Forms.TextBox hotelTextBoxPriceHighRange;
         private System.Windows.Forms.Label labelTransportType;
         private System.Windows.Forms.Label mainLabelTransp;
         private System.Windows.Forms.Label mainLabelRecreation;
@@ -479,7 +563,6 @@
         private System.Windows.Forms.DateTimePicker recreationStartDatePicker;
         private System.Windows.Forms.Label labelRecreationEndDate;
         private System.Windows.Forms.Label labelRecreationStartDate;
-        private System.Windows.Forms.CheckedListBox transportCheckedListBoxType;
         private System.Windows.Forms.Label labelActivityTypes;
         private System.Windows.Forms.CheckedListBox recreationCheckedListBoxActivities;
         private System.Windows.Forms.RichTextBox richTextBox1;
@@ -492,6 +575,15 @@
         private System.Windows.Forms.TextBox transportFromCityTxtBox;
         private System.Windows.Forms.TextBox transportTextBoxHotelStarsHigh;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.CheckedListBox transportCheckedListBoxType;
+        private System.Windows.Forms.TextBox transportPriceHighRange;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox transportPriceLowRange;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox activityPriceHighRange;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox activityPriceLowRange;
+        private System.Windows.Forms.Label label7;
     }
 }
 

@@ -23,16 +23,15 @@ namespace PersonalAssistant.Client.UI
 
         public void SetupDefaultValues()
         {
+            transportStartDateTimePicker.Value = DateTime.Today;
+            transportEndDateTimePicker.Value = DateTime.Today.AddDays(3);
+            recreationStartDatePicker.Value = DateTime.Today;
+            recreationEndDatePicker.Value = DateTime.Today.AddDays(3);
+
             transportStartDateTimePicker.MinDate = DateTime.Today;
             transportEndDateTimePicker.MinDate = DateTime.Today;
             recreationStartDatePicker.MinDate = DateTime.Today;
             recreationEndDatePicker.MinDate = DateTime.Today;
-            
-            transportStartDateTimePicker.Value = DateTime.Today;
-            transportEndDateTimePicker.Value = DateTime.Today.AddDays(3);
-
-            recreationStartDatePicker.Value = DateTime.Today;
-            recreationEndDatePicker.Value = DateTime.Today.AddDays(3);
         }
 
         public void DoEvents()
@@ -47,33 +46,9 @@ namespace PersonalAssistant.Client.UI
 
         public IAggregateServicesRequest BuildRequestFromInputs()
         {
-            // TODO: to be removed
-            // Location
-            var country = transportTextBoxCountry.Text;
-            var city = transportTextBoxCity.Text;
-            var startDate = transportStartDateTimePicker.Text;
-            var endDate = transportEndDateTimePicker.Text;
-            var numberOfRooms = transportTextBoxNoRooms.Text;
-            var plpPerRoom = transportTextBoxPlpPerRoom.Text;
-            var hotelStart = transportTextBoxHotelStarsLow.Text;
-            var lowPriceRange = transportTextBoxPriceLowRange.Text;
-            var highPriceRange = transportTextBoxPriceHighRange.Text;
-
-            // Transportation
-            var transportTypes = transportCheckedListBoxType.CheckedItems;
-            var transportFromCountry = transportFromCountryTxtBox.Text;
-            var transportFromCity = transportFromCityTxtBox.Text;
-
-            // Get items from check as a list
-            IEnumerable<string> listOfTranports = transportTypes.OfType<string>();
-
-            // Recreation items
-            var startDateEvents = recreationStartDatePicker.Text;
-            var endDateEvents = recreationEndDatePicker.Text;
-            var eventsType = recreationCheckedListBoxActivities.CheckedItems;
-
-            return new AggregateServicesRequest
+            var model = new AggregateServicesRequest
             {
+                // Hotel
                 HotelCountry = transportTextBoxCountry.Text,
                 Location = transportTextBoxCity.Text,
                 IntervalOfDays = new Range<DateTime?>
@@ -81,28 +56,41 @@ namespace PersonalAssistant.Client.UI
                     Min = transportStartDateTimePicker.Text != null ? DateTime.Parse(transportStartDateTimePicker.Text) : (DateTime?)null,
                     Max = transportEndDateTimePicker.Text != null ? DateTime.Parse(transportEndDateTimePicker.Text) : (DateTime?)null,
                 },
-                NumberOfRooms = transportTextBoxNoRooms.Text != null ? Int32.Parse(transportTextBoxNoRooms.Text) : (int?) null,
-                NumberOfPeoplePerRoom = transportTextBoxPlpPerRoom.Text != null ? Int32.Parse(transportTextBoxPlpPerRoom.Text) :(int?) null,
+                NumberOfRooms = !String.IsNullOrEmpty(transportTextBoxNoRooms.Text) ? Int32.Parse(transportTextBoxNoRooms.Text) : (int?) null,
+                NumberOfPeoplePerRoom = !String.IsNullOrEmpty(transportTextBoxPlpPerRoom.Text) ? Int32.Parse(transportTextBoxPlpPerRoom.Text) :(int?) null,
                 NumberOfStars = new Range<int?>
                 {
-                    Min = transportTextBoxHotelStarsLow.Text != null ? Int32.Parse(transportTextBoxHotelStarsLow.Text) : (int?) null,
-                    Max = transportTextBoxHotelStarsHigh.Text != null ? Int32.Parse(transportTextBoxHotelStarsHigh.Text) : (int?)null
+                    Min = !String.IsNullOrEmpty(transportTextBoxHotelStarsLow.Text) ? Int32.Parse(transportTextBoxHotelStarsLow.Text) : (int?) null,
+                    Max = !String.IsNullOrEmpty(transportTextBoxHotelStarsHigh.Text) ? Int32.Parse(transportTextBoxHotelStarsHigh.Text) : (int?)null
                 },
-                Price = new Range<int?>
+                HotelPrice = new Range<int?>
                 {
-                    Min = transportTextBoxPriceLowRange.Text != null ? Int32.Parse(transportTextBoxPriceLowRange.Text) : (int?)null,
-                    Max = transportTextBoxPriceHighRange.Text != null ? Int32.Parse(transportTextBoxPriceHighRange.Text) : (int?)null
+                    Min = !String.IsNullOrEmpty(hotelTextBoxPriceLowRange.Text) ? Int32.Parse(hotelTextBoxPriceLowRange.Text) : (int?)null,
+                    Max = !String.IsNullOrEmpty(hotelTextBoxPriceHighRange.Text) ? Int32.Parse(hotelTextBoxPriceHighRange.Text) : (int?)null
                 },
+                // Transport
                 TransportTypes = transportCheckedListBoxType.CheckedItems.OfType<string>(),
                 YourCountry = transportFromCountryTxtBox.Text,
                 YourCity = transportFromCityTxtBox.Text,
+                TransportPrice = new Range<int?>
+                {
+                    Min = !String.IsNullOrEmpty(transportPriceLowRange.Text) ? Int32.Parse(transportPriceLowRange.Text) : (int?)null,
+                    Max = !String.IsNullOrEmpty(transportPriceHighRange.Text) ? Int32.Parse(transportPriceHighRange.Text) : (int?)null
+                },
+                // Activities
                 EventDate = new Range<DateTime?>()
                 {
                     Min = recreationStartDatePicker.Text != null ? DateTime.Parse(recreationStartDatePicker.Text) : (DateTime?)null,
                     Max = recreationEndDatePicker.Text != null ? DateTime.Parse(recreationEndDatePicker.Text) : (DateTime?)null,
                 },
                 ActivityTypes = recreationCheckedListBoxActivities.CheckedItems.OfType<string>(),
+                TouristAttractionsPrice = new Range<int?>
+                {
+                    Min = !String.IsNullOrEmpty(activityPriceLowRange.Text) ? Int32.Parse(activityPriceLowRange.Text) : (int?)null,
+                    Max = !String.IsNullOrEmpty(activityPriceHighRange.Text) ? Int32.Parse(activityPriceHighRange.Text) : (int?)null
+                },
             };
+            return model;
         }
 
         public void ClearAllValues()
@@ -113,18 +101,32 @@ namespace PersonalAssistant.Client.UI
             transportTextBoxNoRooms.Clear();
             transportTextBoxPlpPerRoom.Clear();
             transportTextBoxHotelStarsLow.Clear();
-            transportTextBoxPriceLowRange.Clear();
-            transportTextBoxPriceHighRange.Clear();
+            transportTextBoxHotelStarsHigh.Clear();
+            hotelTextBoxPriceLowRange.Clear();
+            hotelTextBoxPriceHighRange.Clear();
 
             // Transportation
-            transportCheckedListBoxType.ClearSelected();
             transportFromCountryTxtBox.Clear();
             transportFromCityTxtBox.Clear();
-
-            SetupDefaultValues();
+            transportPriceLowRange.Clear();
+            transportPriceHighRange.Clear();
 
             // Recreation items
-            recreationCheckedListBoxActivities.ClearSelected();
+            activityPriceLowRange.Clear();
+            activityPriceHighRange.Clear();
+            ClearCheckBoxList(recreationCheckedListBoxActivities);
+            ClearCheckBoxList(transportCheckedListBoxType);
+
+            SetupDefaultValues();
+        }
+
+        private void ClearCheckBoxList(CheckedListBox myList)
+        {
+            foreach (int i in myList.CheckedIndices)
+            {
+                myList.SetItemCheckState(i, CheckState.Unchecked);
+            }
+            myList.ClearSelected();
         }
 
         private void ButtonSeachClick(object sender, EventArgs e)
@@ -139,7 +141,7 @@ namespace PersonalAssistant.Client.UI
             ClearAllValues();
         }
 
-        private void FormAgentFormClosed(object sender, EventArgs e)
+        private void FormAgentFormClosed(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
         }

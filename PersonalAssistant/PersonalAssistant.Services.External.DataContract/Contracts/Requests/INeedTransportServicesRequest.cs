@@ -11,5 +11,7 @@
         string YourCity { get; set; }
 
         IEnumerable<string> TransportTypes { get; set; }
+
+        Range<int?> TransportPrice { get; set; }
     }
 }

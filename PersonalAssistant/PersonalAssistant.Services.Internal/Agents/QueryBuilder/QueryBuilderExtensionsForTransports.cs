@@ -33,6 +33,7 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
                 yield return TransportTypePredicate(message);
                 yield return YourCountryPredicate(message);
                 yield return YourCityPredicate(message);
+                yield return ActivityPricePredicate(message);
             }
 
             private static Func<TransportServiceInformation, bool> TransportTypePredicate(
@@ -66,6 +67,23 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
                 }
 
                 return x => x.TransportFromCity == message.YourCity;
+            }
+
+            private static Func<TransportServiceInformation, bool> ActivityPricePredicate(INeedTransportServicesRequest message)
+            {
+                if (message.TransportPrice == null || message.TransportPrice.Min == null && message.TransportPrice.Max == null)
+                {
+                    return x => true;
+                }
+                else if (message.TransportPrice.Min == null && message.TransportPrice.Max != null)
+                {
+                    return x => message.TransportPrice.Max >= x.Price;
+                }
+                else if (message.TransportPrice.Min != null && message.TransportPrice.Max == null)
+                {
+                    return x => message.TransportPrice.Min <= x.Price;
+                }
+                return x => x.Price <= message.TransportPrice.Max && x.Price >= message.TransportPrice.Min;
             }
         }
     }
