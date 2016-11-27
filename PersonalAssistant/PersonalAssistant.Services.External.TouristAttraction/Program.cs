@@ -15,12 +15,14 @@
         {
             var activity = new TouristAttractionServiceInformation
                                {
-                                   Name = "Activity 1",
-                                   Description = "Chris Brown Concert",
-                                   Location = "Destination",
-                                   Price = 20,
-                                   EventDate = new DateTime(2016, 12, 24),
-                                   ActivityType = "Concert"
+                                    ActivityType = "Concert",
+                                    DateStart = new DateTime(2016,12,15),
+                                    DateEnd = new DateTime(2016,12,15),
+                                    Name = "Chris Brown Romania Tour",
+                                    Description = "Concert Chris Brown",
+                                    Price = 70,
+                                    Country = "Romania",
+                                    City = "Iasi",
                                };
 
             var service = RegisterService(activity);
