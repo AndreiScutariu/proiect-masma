@@ -1,20 +1,23 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using jade.core;
-using Newtonsoft.Json;
-using PersonalAssistant.Common.Agents;
-using PersonalAssistant.Common.Agents.Interfaces;
-using PersonalAssistant.Services.Common;
-using PersonalAssistant.Services.DataContract;
-using PersonalAssistant.Services.DataContract.Messages;
-
 namespace PersonalAssistant.Services.Internal.Agents.Base
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using jade.core;
+
+    using Newtonsoft.Json;
+
+    using PersonalAssistant.Common.Agents;
+    using PersonalAssistant.Common.Agents.Interfaces;
+    using PersonalAssistant.Services.Common;
+    using PersonalAssistant.Services.DataContract;
+    using PersonalAssistant.Services.DataContract.Messages;
+
     public abstract class ServiceProviderAgent<T> : ReceiveMessagesAgent,
-        INeedToRegisterInServiceLocator,
-        IHandleMessages<ServicesFoundResponse>,
-        IHandleMessages<NewServicesFound>
+                                                    INeedToRegisterInServiceLocator,
+                                                    IHandleMessages<ServicesFoundResponse>,
+                                                    IHandleMessages<NewServicesFound>
     {
         protected List<T> Services;
 
@@ -47,12 +50,12 @@ namespace PersonalAssistant.Services.Internal.Agents.Base
         {
             if (message is ServicesFoundResponse)
             {
-                Handle((ServicesFoundResponse) message, sender);
+                Handle((ServicesFoundResponse)message, sender);
             }
 
             if (message is NewServicesFound)
             {
-                Handle((NewServicesFound) message, sender);
+                Handle((NewServicesFound)message, sender);
             }
         }
 
@@ -68,7 +71,7 @@ namespace PersonalAssistant.Services.Internal.Agents.Base
             Services = new List<T>();
 
             var serviceProviderAddress = ServiceLocator.Find("__ServiceFinder", this).First();
-            var message = new FindMyServicesRequest {CorrelationId = new Guid(), ServiceType = ServiceType};
+            var message = new FindMyServicesRequest { CorrelationId = new Guid(), ServiceType = ServiceType };
 
             SendMessage(serviceProviderAddress, message);
         }

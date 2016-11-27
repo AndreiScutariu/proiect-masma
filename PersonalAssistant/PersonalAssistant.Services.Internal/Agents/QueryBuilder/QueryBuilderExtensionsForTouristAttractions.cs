@@ -1,21 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using PersonalAssistant.Services.DataContract.ServiceInformation;
-using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
-
-namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
+﻿namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using PersonalAssistant.Services.DataContract.ServiceInformation;
+    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
+
     internal static class QueryBuilderExtensionsForTouristAttractions
     {
-        public static IEnumerable<TouristAttractionServiceInformation> GetFor(this IList<TouristAttractionServiceInformation> services,
+        public static IEnumerable<TouristAttractionServiceInformation> GetFor(
+            this IList<TouristAttractionServiceInformation> services,
             INeedTouristAttractionServicesRequest message)
         {
             IEnumerable<TouristAttractionServiceInformation> query = new TouristAttractionServiceInformation[0];
 
-            var predicates = SearchPredicates.GetFor(message);
+            IEnumerable<Func<TouristAttractionServiceInformation, bool>> predicates = SearchPredicates.GetFor(message);
 
-            foreach (var predicate in predicates)
+            foreach (Func<TouristAttractionServiceInformation, bool> predicate in predicates)
             {
                 query = services.Where(predicate);
             }
@@ -25,7 +27,14 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
 
         private static class SearchPredicates
         {
-            private static Func<TouristAttractionServiceInformation, bool> ActivityTypePredicate(INeedTouristAttractionServicesRequest message)
+            public static IEnumerable<Func<TouristAttractionServiceInformation, bool>> GetFor(
+                INeedTouristAttractionServicesRequest message)
+            {
+                yield return ActivityTypePredicate(message);
+            }
+
+            private static Func<TouristAttractionServiceInformation, bool> ActivityTypePredicate(
+                INeedTouristAttractionServicesRequest message)
             {
                 if (message.ActivityType == null)
                 {
@@ -34,12 +43,6 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
 
                 return x => x.ActivityType == message.ActivityType;
             }
-
-            public static IEnumerable<Func<TouristAttractionServiceInformation, bool>> GetFor(INeedTouristAttractionServicesRequest message)
-            {
-                yield return ActivityTypePredicate(message);
-            }
         }
-
     }
 }

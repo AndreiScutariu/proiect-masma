@@ -1,10 +1,12 @@
-﻿using jade.core;
-using jade.lang.acl;
-using Newtonsoft.Json;
-using PersonalAssistant.Common.Behaviours;
-
-namespace PersonalAssistant.Common.Agents
+﻿namespace PersonalAssistant.Common.Agents
 {
+    using jade.core;
+    using jade.lang.acl;
+
+    using Newtonsoft.Json;
+
+    using PersonalAssistant.Common.Behaviours;
+
     public abstract class ReceiveMessagesAgent : BaseAgent
     {
         public override void setup()

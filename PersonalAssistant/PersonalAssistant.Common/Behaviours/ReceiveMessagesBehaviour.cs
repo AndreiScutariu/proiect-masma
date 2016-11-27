@@ -1,23 +1,26 @@
-﻿using jade.core.behaviours;
-using Newtonsoft.Json;
-using PersonalAssistant.Common.Agents;
-using PersonalAssistant.Common.Agents.Interfaces;
-using PersonalAssistant.Common.Messages;
-
-namespace PersonalAssistant.Common.Behaviours
+﻿namespace PersonalAssistant.Common.Behaviours
 {
+    using jade.core.behaviours;
+
+    using Newtonsoft.Json;
+
+    using PersonalAssistant.Common.Agents;
+    using PersonalAssistant.Common.Agents.Interfaces;
+    using PersonalAssistant.Common.Messages;
+
     public class ReceiveMessagesBehaviour : CyclicBehaviour, INeedSpecificAgent
     {
-        private readonly ReceiveMessagesAgent _agent;
+        private readonly ReceiveMessagesAgent agent;
 
-        public ReceiveMessagesBehaviour(ReceiveMessagesAgent agent) : base(agent)
+        public ReceiveMessagesBehaviour(ReceiveMessagesAgent agent)
+            : base(agent)
         {
-            _agent = agent;
+            this.agent = agent;
         }
 
         public override void action()
         {
-            var message = _agent.receive();
+            var message = agent.receive();
 
             if (message != null)
             {
@@ -29,7 +32,7 @@ namespace PersonalAssistant.Common.Behaviours
 
                 var instance = MessageDeserializer.GetMessageInstance(type, content);
 
-                _agent.Handle(instance, sender);
+                agent.Handle(instance, sender);
             }
             else
             {

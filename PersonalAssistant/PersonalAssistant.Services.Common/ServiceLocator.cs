@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-using jade.core;
-using jade.domain;
-using jade.domain.FIPAAgentManagement;
-
-namespace PersonalAssistant.Services.Common
+﻿namespace PersonalAssistant.Services.Common
 {
+    using System.Collections.Generic;
+
+    using jade.core;
+    using jade.domain;
+    using jade.domain.FIPAAgentManagement;
+
     //TODO - Reimplement this to use timeouts, and implement a load balancer
     public class ServiceLocator
     {
@@ -21,9 +22,12 @@ namespace PersonalAssistant.Services.Common
                 sd.setType(serviceName);
                 template.addServices(sd);
 
-                var result = DFService.search(myAgent, template);
+                DFAgentDescription[] result = DFService.search(myAgent, template);
 
-                if (result == null || result.Length <= 0) continue;
+                if (result == null || result.Length <= 0)
+                {
+                    continue;
+                }
 
                 foreach (var t in result)
                 {
@@ -45,7 +49,6 @@ namespace PersonalAssistant.Services.Common
             dfd.addServices(sd);
             DFService.register(myAgent, dfd);
         }
-
 
         public static void Deregister(Agent myAgent)
         {

@@ -1,17 +1,21 @@
-﻿using System.IO;
-using System.Linq;
-using jade.core.behaviours;
-using Newtonsoft.Json;
-using PersonalAssistant.Services.Common;
-using PersonalAssistant.Services.DataContract;
-
-namespace PersonalAssistant.Services.Internal.ServiceFinder.Behaviours
+﻿namespace PersonalAssistant.Services.Internal.ServiceFinder.Behaviours
 {
+    using System.IO;
+    using System.Linq;
+
+    using jade.core.behaviours;
+
+    using Newtonsoft.Json;
+
+    using PersonalAssistant.Services.Common;
+    using PersonalAssistant.Services.DataContract;
+
     internal class RefreshServicesCacheBehaviour : TickerBehaviour
     {
         private readonly ServiceFinderAgent _a;
 
-        public RefreshServicesCacheBehaviour(ServiceFinderAgent a) : base(a, 1000)
+        public RefreshServicesCacheBehaviour(ServiceFinderAgent a)
+            : base(a, 1000)
         {
             _a = a;
         }

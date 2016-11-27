@@ -1,9 +1,10 @@
-using System;
-using System.Collections.Generic;
-
 namespace PersonalAssistant.Services.DataContract.ServiceInformation
 {
-    public class TouristAttractionServiceInformation : Base.ServiceInformation
+    using System;
+
+    using PersonalAssistant.Services.DataContract.Base;
+
+    public class TouristAttractionServiceInformation : ServiceInformation
     {
         public DateTime EventDate { get; set; }
 

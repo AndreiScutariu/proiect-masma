@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using jade.core;
-using PersonalAssistant.Client.Behaviours;
-using PersonalAssistant.Common.Agents;
-using PersonalAssistant.Common.Agents.Interfaces;
-using PersonalAssistant.Services.Common;
-using PersonalAssistant.Services.External.DataContract.Contracts.Responses;
-
-namespace PersonalAssistant.Client.Agents
+﻿namespace PersonalAssistant.Client.Agents
 {
+    using System;
+    using System.Collections.Generic;
+
+    using jade.core;
+
+    using PersonalAssistant.Client.Behaviours;
+    using PersonalAssistant.Common.Agents;
+    using PersonalAssistant.Common.Agents.Interfaces;
+    using PersonalAssistant.Services.Common;
+    using PersonalAssistant.Services.External.DataContract.Contracts.Responses;
+
     public class ClientAgent : ReceiveMessagesAgent,
-        IHaveServiceProviders,
-        IHandleMessages<FoundHotelServicesResponse>,
-        IHandleMessages<FoundTransportServicesResponse>
+                               IHaveServiceProviders,
+                               IHandleMessages<FoundHotelServicesResponse>,
+                               IHandleMessages<FoundTransportServicesResponse>
     {
+        public List<AID> Providers { get; set; }
+
         public void Handle(FoundHotelServicesResponse message, AID sender)
         {
             foreach (var hotel in message.Hotels)
@@ -29,8 +33,6 @@ namespace PersonalAssistant.Client.Agents
                 Console.WriteLine($"Found Transport: {transport.Description}, {transport.YourLocation}.");
             }
         }
-
-        public List<AID> Providers { get; set; }
 
         public void FindMyServiceProviders()
         {
@@ -51,12 +53,12 @@ namespace PersonalAssistant.Client.Agents
         {
             if (message is FoundHotelServicesResponse)
             {
-                Handle((FoundHotelServicesResponse) message, sender);
+                Handle((FoundHotelServicesResponse)message, sender);
             }
 
             if (message is FoundTransportServicesResponse)
             {
-                Handle((FoundTransportServicesResponse) message, sender);
+                Handle((FoundTransportServicesResponse)message, sender);
             }
         }
     }

@@ -1,13 +1,17 @@
-﻿using System.Threading;
-using jade.core;
-using PersonalAssistant.Client.Agents;
-using PersonalAssistant.Common;
-using PersonalAssistant.Services.Internal.Agents;
-using PersonalAssistant.Services.Internal.ServiceFinder;
-using AgentContainer = jade.wrapper.AgentContainer;
-
-namespace PersonalAssistant.Console.Startup
+﻿namespace PersonalAssistant.Console.Startup
 {
+    using System;
+    using System.Threading;
+
+    using jade.core;
+
+    using PersonalAssistant.Client.Agents;
+    using PersonalAssistant.Common;
+    using PersonalAssistant.Services.Internal.Agents;
+    using PersonalAssistant.Services.Internal.ServiceFinder;
+
+    using AgentContainer = jade.wrapper.AgentContainer;
+
     internal class Program
     {
         private static AgentContainer CreateAgentContainer()
@@ -26,7 +30,7 @@ namespace PersonalAssistant.Console.Startup
             serviceProvider.start();
 
             Thread.Sleep(2000);
-            System.Console.WriteLine();
+            Console.WriteLine();
 
             var hotelAgent = agentBuilder.Create<HotelProviderAgent>().Build();
             hotelAgent.start();
@@ -35,7 +39,7 @@ namespace PersonalAssistant.Console.Startup
             transportAgent.start();
 
             Thread.Sleep(2000);
-            System.Console.WriteLine();
+            Console.WriteLine();
 
             var client = agentBuilder.Create<ClientAgent>().Build();
             client.start();

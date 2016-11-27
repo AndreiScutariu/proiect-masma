@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace PersonalAssistant.Common.Messages
+﻿namespace PersonalAssistant.Common.Messages
 {
+    using System;
+
     public class HeaderMessage
     {
         public HeaderMessage()

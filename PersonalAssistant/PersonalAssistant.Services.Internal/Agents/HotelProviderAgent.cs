@@ -1,18 +1,20 @@
-﻿using System.Linq;
-using jade.core;
-using PersonalAssistant.Common.Agents.Interfaces;
-using PersonalAssistant.Services.DataContract;
-using PersonalAssistant.Services.DataContract.ServiceInformation;
-using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
-using PersonalAssistant.Services.External.DataContract.Contracts.Responses;
-using PersonalAssistant.Services.External.DataContract.Messages.Client;
-using PersonalAssistant.Services.Internal.Agents.Base;
-using PersonalAssistant.Services.Internal.Agents.QueryBuilder;
-
-namespace PersonalAssistant.Services.Internal.Agents
+﻿namespace PersonalAssistant.Services.Internal.Agents
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using jade.core;
+
+    using PersonalAssistant.Common.Agents.Interfaces;
+    using PersonalAssistant.Services.DataContract;
+    using PersonalAssistant.Services.DataContract.ServiceInformation;
+    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
+    using PersonalAssistant.Services.External.DataContract.Contracts.Responses;
+    using PersonalAssistant.Services.Internal.Agents.Base;
+    using PersonalAssistant.Services.Internal.Agents.QueryBuilder;
+
     public class HotelProviderAgent : ServiceProviderAgent<HotelServiceInformation>,
-        IHandleMessages<INeedHotelServicesRequest>
+                                      IHandleMessages<INeedHotelServicesRequest>
     {
         protected override ServiceType ServiceType => ServiceType.Hotel;
 
@@ -20,13 +22,15 @@ namespace PersonalAssistant.Services.Internal.Agents
 
         public void Handle(INeedHotelServicesRequest message, AID sender)
         {
-            var hotelServiceInformations = Services.GetFor(message).ToList();
+            List<HotelServiceInformation> hotelServiceInformations = Services.GetFor(message).ToList();
 
-            SendMessage(sender, new FoundHotelServicesResponse
-            {
-                CorrelationId = message.CorrelationId,
-                Hotels = hotelServiceInformations
-            });
+            SendMessage(
+                sender,
+                new FoundHotelServicesResponse
+                    {
+                        CorrelationId = message.CorrelationId,
+                        Hotels = hotelServiceInformations
+                    });
         }
 
         public override void Handle(object message, AID sender)
@@ -35,7 +39,7 @@ namespace PersonalAssistant.Services.Internal.Agents
 
             if (message is INeedHotelServicesRequest)
             {
-                Handle((INeedHotelServicesRequest) message, sender);
+                Handle((INeedHotelServicesRequest)message, sender);
             }
         }
     }

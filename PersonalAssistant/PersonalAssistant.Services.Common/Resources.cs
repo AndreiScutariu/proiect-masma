@@ -1,7 +1,7 @@
-﻿using jade.core;
-
-namespace PersonalAssistant.Services.Common
+﻿namespace PersonalAssistant.Services.Common
 {
+    using jade.core;
+
     public static class Resources
     {
         public static string DropFolderPaht = "C:\\PersonalAssistantServices\\";

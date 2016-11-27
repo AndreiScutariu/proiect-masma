@@ -1,8 +1,8 @@
-﻿using PersonalAssistant.Common.Messages;
-using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
-
-namespace PersonalAssistant.Services.External.DataContract.Messages.Services
+﻿namespace PersonalAssistant.Services.External.DataContract.Messages.Services
 {
+    using PersonalAssistant.Common.Messages;
+    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
+
     public class NeedTransportServicesRequest : HeaderMessage, INeedTransportServicesRequest
     {
         public string Description { get; set; }

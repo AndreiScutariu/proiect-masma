@@ -1,19 +1,20 @@
-﻿using System;
-using System.Linq;
-using jade.core;
-using PersonalAssistant.Common.Agents.Interfaces;
-using PersonalAssistant.Services.DataContract;
-using PersonalAssistant.Services.DataContract.ServiceInformation;
-using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
-using PersonalAssistant.Services.External.DataContract.Contracts.Responses;
-using PersonalAssistant.Services.External.DataContract.Messages.Client;
-using PersonalAssistant.Services.Internal.Agents.Base;
-using PersonalAssistant.Services.Internal.Agents.QueryBuilder;
-
-namespace PersonalAssistant.Services.Internal.Agents
+﻿namespace PersonalAssistant.Services.Internal.Agents
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using jade.core;
+
+    using PersonalAssistant.Common.Agents.Interfaces;
+    using PersonalAssistant.Services.DataContract;
+    using PersonalAssistant.Services.DataContract.ServiceInformation;
+    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
+    using PersonalAssistant.Services.External.DataContract.Contracts.Responses;
+    using PersonalAssistant.Services.Internal.Agents.Base;
+    using PersonalAssistant.Services.Internal.Agents.QueryBuilder;
+
     public class TransportProviderAgent : ServiceProviderAgent<TransportServiceInformation>,
-        IHandleMessages<INeedTransportServicesRequest>
+                                          IHandleMessages<INeedTransportServicesRequest>
     {
         protected override ServiceType ServiceType => ServiceType.Transport;
 
@@ -21,13 +22,15 @@ namespace PersonalAssistant.Services.Internal.Agents
 
         public void Handle(INeedTransportServicesRequest message, AID sender)
         {
-            var transportServiceInformations = Services.GetFor(message).ToList();
+            List<TransportServiceInformation> transportServiceInformations = Services.GetFor(message).ToList();
 
-            SendMessage(sender, new FoundTransportServicesResponse
-            {
-                CorrelationId = message.CorrelationId,
-                Tranports = transportServiceInformations
-            });
+            SendMessage(
+                sender,
+                new FoundTransportServicesResponse
+                    {
+                        CorrelationId = message.CorrelationId,
+                        Tranports = transportServiceInformations
+                    });
         }
 
         public override void Handle(object message, AID sender)
@@ -36,7 +39,7 @@ namespace PersonalAssistant.Services.Internal.Agents
 
             if (message is INeedTransportServicesRequest)
             {
-                Handle((INeedTransportServicesRequest) message, sender);
+                Handle((INeedTransportServicesRequest)message, sender);
             }
         }
     }

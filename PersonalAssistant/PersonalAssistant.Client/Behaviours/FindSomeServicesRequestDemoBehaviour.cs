@@ -1,31 +1,33 @@
-﻿using jade.core.behaviours;
-using PersonalAssistant.Client.Agents;
-using PersonalAssistant.Services.External.DataContract;
-using PersonalAssistant.Services.External.DataContract.Messages.Client;
-
-namespace PersonalAssistant.Client.Behaviours
+﻿namespace PersonalAssistant.Client.Behaviours
 {
+    using jade.core.behaviours;
+
+    using PersonalAssistant.Client.Agents;
+    using PersonalAssistant.Services.External.DataContract;
+    using PersonalAssistant.Services.External.DataContract.Messages.Client;
+
     internal class FindSomeServicesRequestDemoBehaviour : OneShotBehaviour
     {
-        private readonly ClientAgent _clientAgent;
+        private readonly ClientAgent clientAgent;
 
-        public FindSomeServicesRequestDemoBehaviour(ClientAgent clientAgent) : base(clientAgent)
+        public FindSomeServicesRequestDemoBehaviour(ClientAgent clientAgent)
+            : base(clientAgent)
         {
-            _clientAgent = clientAgent;
+            this.clientAgent = clientAgent;
         }
 
         public override void action()
         {
             var needServicesRequest = new AggregateServicesRequest
-            {
-                NumberOfStars = new Range<int> {Min = 1, Max = 3},
-                Price = new Range<int> {Min = 100, Max = 300},
-                YourLocation = "Home Location 2"
-            };
+                                          {
+                                              NumberOfStars = new Range<int> { Min = 1, Max = 3 },
+                                              Price = new Range<int> { Min = 100, Max = 300 },
+                                              YourLocation = "Home Location 2"
+                                          };
 
-            foreach (var provider in _clientAgent.Providers)
+            foreach (var provider in clientAgent.Providers)
             {
-                _clientAgent.SendMessage(provider, needServicesRequest);
+                clientAgent.SendMessage(provider, needServicesRequest);
             }
         }
     }

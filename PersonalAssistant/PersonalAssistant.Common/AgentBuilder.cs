@@ -1,63 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
-using jade.core;
-using jade.core.behaviours;
-using jade.wrapper;
-using AgentContainer = jade.wrapper.AgentContainer;
-
-namespace PersonalAssistant.Common
+﻿namespace PersonalAssistant.Common
 {
+    using System;
+    using System.Collections.Generic;
+
+    using jade.core;
+    using jade.core.behaviours;
+    using jade.wrapper;
+
+    using AgentContainer = jade.wrapper.AgentContainer;
+
     public class AgentBuilder
     {
-        private readonly AgentContainer _agentContainer;
+        private readonly AgentContainer agentContainer;
 
-        private readonly IList<Type> _behaviourTypes;
+        private readonly IList<Type> behaviourTypes;
 
-        private string _agentName;
+        private string agentName;
 
-        private Type _typeOfAgent;
+        private Type typeOfAgent;
 
         public AgentBuilder(AgentContainer agentContainer)
         {
-            _agentContainer = agentContainer;
-            _behaviourTypes = new List<Type>();
+            this.agentContainer = agentContainer;
+            behaviourTypes = new List<Type>();
         }
 
         public AgentBuilder Create<T>() where T : Agent
         {
-            _typeOfAgent = typeof (T);
-            _agentName = typeof (T).Name;
+            typeOfAgent = typeof(T);
+            agentName = typeof(T).Name;
 
             return this;
         }
 
         public AgentBuilder Create<T>(string agentName) where T : Agent
         {
-            _typeOfAgent = typeof (T);
-            _agentName = agentName;
+            typeOfAgent = typeof(T);
+            this.agentName = agentName;
 
             return this;
         }
 
         public AgentBuilder WithBehaivour<T>() where T : Behaviour
         {
-            _behaviourTypes.Add(typeof (T));
+            behaviourTypes.Add(typeof(T));
 
             return this;
         }
 
         public AgentController Build()
         {
-            var arguments = new object[_behaviourTypes.Count];
+            var arguments = new object[behaviourTypes.Count];
             var idx = 0;
 
-            foreach (var behaviourType in _behaviourTypes)
+            foreach (var behaviourType in behaviourTypes)
             {
                 arguments[idx++] = behaviourType;
             }
 
-            _behaviourTypes.Clear();
-            return _agentContainer.createNewAgent(_agentName, _typeOfAgent.FullName, arguments);
+            behaviourTypes.Clear();
+            return agentContainer.createNewAgent(agentName, typeOfAgent.FullName, arguments);
         }
     }
 }

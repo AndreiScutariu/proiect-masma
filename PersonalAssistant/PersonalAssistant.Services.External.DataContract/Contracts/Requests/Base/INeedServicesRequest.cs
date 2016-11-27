@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace PersonalAssistant.Services.External.DataContract.Contracts.Requests.Base
+﻿namespace PersonalAssistant.Services.External.DataContract.Contracts.Requests.Base
 {
+    using System;
+
     public interface INeedServicesRequest
     {
         Guid CorrelationId { get; set; }

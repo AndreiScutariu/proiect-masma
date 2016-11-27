@@ -1,24 +1,26 @@
-using System;
-using System.Linq;
-using jade.core;
-using jade.core.behaviours;
-using PersonalAssistant.Common.Agents.Interfaces;
-
 namespace PersonalAssistant.Common.Agents
 {
+    using System;
+    using System.Linq;
+
+    using jade.core;
+    using jade.core.behaviours;
+
+    using PersonalAssistant.Common.Agents.Interfaces;
+
     public class BaseAgent : Agent
     {
         public override void setup()
         {
             LogMyDetails();
 
-            var arguments = getArguments();
+            object[] arguments = getArguments();
 
             foreach (var type in arguments.Cast<Type>())
             {
                 Behaviour instance;
 
-                if (typeof (INeedSpecificAgent).IsAssignableFrom(type))
+                if (typeof(INeedSpecificAgent).IsAssignableFrom(type))
                 {
                     instance = Activator.CreateInstance(type, this) as Behaviour;
                 }
@@ -33,31 +35,32 @@ namespace PersonalAssistant.Common.Agents
             InitializeMyDependencies();
         }
 
-        private void InitializeMyDependencies()
+        public override void takeDown()
         {
-            var myType = GetType();
-
-            if (typeof (INeedToRegisterInServiceLocator).IsAssignableFrom(myType))
-            {
-                (this as INeedToRegisterInServiceLocator)?.RegisterInTheServiceLocator();
-            }
-
-            if (typeof (IHaveServiceProviders).IsAssignableFrom(myType))
-            {
-                (this as IHaveServiceProviders)?.FindMyServiceProviders();
-            }
+            Console.WriteLine(
+                "Agent " + getLocalName() + " is being removed from " + getContainerController().getContainerName()
+                + "... \n");
         }
 
         protected void LogMyDetails()
         {
-            Console.WriteLine("I'm " + getLocalName() + " and I'm living in " +
-                              getContainerController().getContainerName());
+            Console.WriteLine(
+                "I'm " + getLocalName() + " and I'm living in " + getContainerController().getContainerName());
         }
 
-        public override void takeDown()
+        private void InitializeMyDependencies()
         {
-            Console.WriteLine("Agent " + getLocalName() + " is being removed from " +
-                              getContainerController().getContainerName() + "... \n");
+            var myType = GetType();
+
+            if (typeof(INeedToRegisterInServiceLocator).IsAssignableFrom(myType))
+            {
+                (this as INeedToRegisterInServiceLocator)?.RegisterInTheServiceLocator();
+            }
+
+            if (typeof(IHaveServiceProviders).IsAssignableFrom(myType))
+            {
+                (this as IHaveServiceProviders)?.FindMyServiceProviders();
+            }
         }
     }
 }

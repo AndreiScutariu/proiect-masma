@@ -1,22 +1,24 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using PersonalAssistant.Services.DataContract.ServiceInformation;
-using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
-
 namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using PersonalAssistant.Services.DataContract.ServiceInformation;
+    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
+
     internal static class QueryBuilderExtensionsForTransports
     {
         //TODO - Refactor this, be more generic
-        public static IEnumerable<TransportServiceInformation> GetFor(this IList<TransportServiceInformation> services,
+        public static IEnumerable<TransportServiceInformation> GetFor(
+            this IList<TransportServiceInformation> services,
             INeedTransportServicesRequest message)
         {
             IEnumerable<TransportServiceInformation> query = new TransportServiceInformation[0];
 
-            var predicates = SearchPredicates.GetFor(message);
+            IEnumerable<Func<TransportServiceInformation, bool>> predicates = SearchPredicates.GetFor(message);
 
-            foreach (var predicate in predicates)
+            foreach (Func<TransportServiceInformation, bool> predicate in predicates)
             {
                 query = services.Where(predicate);
             }
@@ -26,6 +28,12 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
 
         private static class SearchPredicates
         {
+            public static IEnumerable<Func<TransportServiceInformation, bool>> GetFor(
+                INeedTransportServicesRequest message)
+            {
+                yield return YourLocationPredicate(message);
+            }
+
             private static Func<TransportServiceInformation, bool> YourLocationPredicate(
                 INeedTransportServicesRequest message)
             {
@@ -35,12 +43,6 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
                 }
 
                 return x => x.YourLocation == message.YourLocation;
-            }
-
-            public static IEnumerable<Func<TransportServiceInformation, bool>> GetFor(
-                INeedTransportServicesRequest message)
-            {
-                yield return YourLocationPredicate(message);
             }
         }
     }

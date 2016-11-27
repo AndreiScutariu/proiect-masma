@@ -1,13 +1,13 @@
-﻿using System;
-
-namespace PersonalAssistant.Services.DataContract.Base
+﻿namespace PersonalAssistant.Services.DataContract.Base
 {
+    using System;
+
     public abstract class ServiceInformation
     {
         protected ServiceInformation()
         {
             Type = GetType();
-            RegisterAt = DateTime.Now;;
+            RegisterAt = DateTime.Now;
         }
 
         public Type Type { get; set; }

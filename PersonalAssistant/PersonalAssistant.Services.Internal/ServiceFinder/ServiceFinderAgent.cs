@@ -1,31 +1,38 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using jade.core;
-using PersonalAssistant.Common.Agents;
-using PersonalAssistant.Common.Agents.Interfaces;
-using PersonalAssistant.Services.Common;
-using PersonalAssistant.Services.DataContract.Messages;
-using PersonalAssistant.Services.Internal.ServiceFinder.Behaviours;
-using Service = PersonalAssistant.Services.DataContract.Service;
-
-namespace PersonalAssistant.Services.Internal.ServiceFinder
+﻿namespace PersonalAssistant.Services.Internal.ServiceFinder
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using jade.core;
+
+    using PersonalAssistant.Common.Agents;
+    using PersonalAssistant.Common.Agents.Interfaces;
+    using PersonalAssistant.Services.Common;
+    using PersonalAssistant.Services.DataContract.Messages;
+    using PersonalAssistant.Services.Internal.ServiceFinder.Behaviours;
+
+    using Service = PersonalAssistant.Services.DataContract.Service;
+
     public class ServiceFinderAgent : ReceiveMessagesAgent,
-        INeedToRegisterInServiceLocator,
-        IHandleMessages<FindMyServicesRequest>
+                                      INeedToRegisterInServiceLocator,
+                                      IHandleMessages<FindMyServicesRequest>
     {
         private List<Service> _services;
 
         public void Handle(FindMyServicesRequest message, AID sender)
         {
-            SendMessage(sender, new ServicesFoundResponse
-            {
-                CorrelationId = message.CorrelationId,
-                ServicesInformation = _services.Where(service => service.ServiceType == message.ServiceType)
-                    .Select(service => service.ServiceInformation)
-                    .ToList()
-            });
+            SendMessage(
+                sender,
+                new ServicesFoundResponse
+                    {
+                        CorrelationId = message.CorrelationId,
+                        ServicesInformation =
+                            _services.Where(service => service.ServiceType == message.ServiceType)
+                            .Select(service => service.ServiceInformation)
+                            .ToList()
+                    });
         }
+
         public override void Handle(object message, AID sender)
         {
             if (message is FindMyServicesRequest)
