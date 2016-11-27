@@ -1,4 +1,4 @@
-﻿namespace PersonalAssistant.Services.External.DataContract.Contracts.Requests
+﻿namespace PersonalAssistant.Services.External.Messages.Contracts.Requests
 {
     public interface IAggregateServicesRequest : INeedTransportServicesRequest,
                                                  INeedHotelServicesRequest,

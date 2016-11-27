@@ -1,8 +1,8 @@
-﻿namespace PersonalAssistant.Services.External.DataContract.Contracts.Requests
+﻿namespace PersonalAssistant.Services.External.Messages.Contracts.Requests
 {
     using System;
 
-    using PersonalAssistant.Services.External.DataContract.Contracts.Requests.Base;
+    using PersonalAssistant.Services.External.Messages.Contracts.Requests.Base;
 
     public interface INeedTouristAttractionServicesRequest : INeedServicesRequest
     {

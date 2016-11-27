@@ -8,8 +8,8 @@
     using PersonalAssistant.Common.Agents;
     using PersonalAssistant.Common.Agents.Interfaces;
     using PersonalAssistant.Services.Common;
-    using PersonalAssistant.Services.DataContract.Messages;
     using PersonalAssistant.Services.Internal.ServiceFinder.Behaviours;
+    using PersonalAssistant.Services.Messages.Messages;
 
     using Service = PersonalAssistant.Services.DataContract.Service;
 

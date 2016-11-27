@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-
-namespace PersonalAssistant.Services.External.DataContract.Messages.Client
+﻿namespace PersonalAssistant.Services.External.Messages.Messages.Client
 {
     using System;
+    using System.Collections.Generic;
 
     using PersonalAssistant.Common.Messages;
-    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
+    using PersonalAssistant.Services.External.Messages.Contracts.Requests;
 
     public class AggregateServicesRequest : HeaderMessage, IAggregateServicesRequest
     {

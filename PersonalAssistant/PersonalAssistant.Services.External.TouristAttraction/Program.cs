@@ -1,4 +1,4 @@
-﻿namespace PersonalAssistant.Services.External.Tourist
+﻿namespace PersonalAssistant.Services.External.TouristAttraction
 {
     using System;
     using System.IO;

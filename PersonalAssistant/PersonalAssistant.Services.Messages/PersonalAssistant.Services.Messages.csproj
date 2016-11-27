@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A0242DFF-666E-456D-8619-45E549BDCE1A}</ProjectGuid>
+    <ProjectGuid>{29358642-027E-4D82-A30E-9EC54276B91E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PersonalAssistant.Services.External.DataContract</RootNamespace>
-    <AssemblyName>PersonalAssistant.Services.External.DataContract</AssemblyName>
+    <RootNamespace>PersonalAssistant.Services.Messages</RootNamespace>
+    <AssemblyName>PersonalAssistant.Services.Messages</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,24 +35,16 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\Requests\IAggregateServicesRequest.cs" />
-    <Compile Include="Contracts\Requests\Base\INeedServicesRequest.cs" />
-    <Compile Include="Contracts\Responses\FoundHotelServicesResponse.cs" />
-    <Compile Include="Contracts\Responses\FoundTouristAttractionServicesResponse.cs" />
-    <Compile Include="Contracts\Responses\FoundTransportServicesResponse.cs" />
-    <Compile Include="Messages\Client\AggregateServicesRequest.cs" />
-    <Compile Include="Contracts\Requests\INeedHotelServicesRequest.cs" />
-    <Compile Include="Contracts\Requests\INeedTouristAttractionServicesRequest.cs" />
-    <Compile Include="Contracts\Requests\INeedTransportServicesRequest.cs" />
+    <Compile Include="Messages\FindMyServicesRequest.cs" />
+    <Compile Include="Messages\NewServicesFound.cs" />
+    <Compile Include="Messages\ServicesFoundResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Range.cs" />
-    <Compile Include="Messages\Services\NeedHotelServicesRequest.cs" />
-    <Compile Include="Messages\Services\NeedTouristAttractionServicesRequest.cs" />
-    <Compile Include="Messages\Services\NeedTransportServicesRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PersonalAssistant.Common\PersonalAssistant.Common.csproj">
@@ -63,7 +56,6 @@
       <Name>PersonalAssistant.Services.DataContract</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

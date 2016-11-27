@@ -1,4 +1,4 @@
-﻿namespace PersonalAssistant.Services.External.DataContract.Contracts.Responses
+﻿namespace PersonalAssistant.Services.External.Messages.Contracts.Responses
 {
     using System.Collections.Generic;
 

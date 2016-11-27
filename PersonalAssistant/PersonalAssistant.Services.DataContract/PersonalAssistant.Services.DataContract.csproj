@@ -37,9 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\ServiceInformation.cs" />
-    <Compile Include="Messages\FindMyServicesRequest.cs" />
-    <Compile Include="Messages\NewServicesFound.cs" />
-    <Compile Include="Messages\ServicesFoundResponse.cs" />
     <Compile Include="ServiceInformation\TouristAttractionServiceInformation.cs" />
     <Compile Include="ServiceInformation\HotelServiceInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace PersonalAssistant.Services.External.DataContract.Messages.Services
+﻿namespace PersonalAssistant.Services.External.Messages.Messages.Services
 {
+    using System.Collections.Generic;
+
     using PersonalAssistant.Common.Messages;
-    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
+    using PersonalAssistant.Services.External.Messages.Contracts.Requests;
 
     public class NeedTransportServicesRequest : HeaderMessage, INeedTransportServicesRequest
     {

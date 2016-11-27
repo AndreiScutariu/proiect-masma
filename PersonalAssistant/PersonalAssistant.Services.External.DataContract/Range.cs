@@ -1,4 +1,4 @@
-namespace PersonalAssistant.Services.External.DataContract
+namespace PersonalAssistant.Services.External.Messages
 {
     public class Range<T>
     {

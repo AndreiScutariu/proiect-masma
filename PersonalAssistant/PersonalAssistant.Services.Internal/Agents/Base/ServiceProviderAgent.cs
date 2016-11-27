@@ -13,7 +13,7 @@ namespace PersonalAssistant.Services.Internal.Agents.Base
     using PersonalAssistant.Common.Agents.Interfaces;
     using PersonalAssistant.Services.Common;
     using PersonalAssistant.Services.DataContract;
-    using PersonalAssistant.Services.DataContract.Messages;
+    using PersonalAssistant.Services.Messages.Messages;
 
     public abstract class ServiceProviderAgent<T> : ReceiveMessagesAgent,
                                                     INeedToRegisterInServiceLocator,

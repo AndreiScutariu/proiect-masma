@@ -5,7 +5,7 @@
     using System.Linq;
 
     using PersonalAssistant.Services.DataContract.ServiceInformation;
-    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
+    using PersonalAssistant.Services.External.Messages.Contracts.Requests;
 
     internal static class QueryBuilderExtensionsForTouristAttractions
     {

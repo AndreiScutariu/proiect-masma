@@ -9,8 +9,8 @@
     using PersonalAssistant.Common.Agents;
     using PersonalAssistant.Common.Agents.Interfaces;
     using PersonalAssistant.Services.Common;
-    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
-    using PersonalAssistant.Services.External.DataContract.Contracts.Responses;
+    using PersonalAssistant.Services.External.Messages.Contracts.Requests;
+    using PersonalAssistant.Services.External.Messages.Contracts.Responses;
 
     public class ClientSearchVacantionPackageAgent : ReceiveMessagesAgent,
                                                      IHaveServiceProviders,

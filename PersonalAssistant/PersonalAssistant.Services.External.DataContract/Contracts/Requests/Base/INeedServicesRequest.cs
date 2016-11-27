@@ -1,4 +1,4 @@
-﻿namespace PersonalAssistant.Services.External.DataContract.Contracts.Requests.Base
+﻿namespace PersonalAssistant.Services.External.Messages.Contracts.Requests.Base
 {
     using System;
 

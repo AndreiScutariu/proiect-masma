@@ -5,8 +5,8 @@
     using System.Linq;
     using System.Windows.Forms;
 
-    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
-    using PersonalAssistant.Services.External.DataContract.Messages.Client;
+    using PersonalAssistant.Services.External.Messages.Contracts.Requests;
+    using PersonalAssistant.Services.External.Messages.Messages.Client;
 
     public partial class DisplayForm : Form
     {

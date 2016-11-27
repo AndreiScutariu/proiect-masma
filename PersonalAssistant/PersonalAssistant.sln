@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{B3993590-79E6-4BF3-9B82-C26844CCCB38}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0_Libs", "0_Libs", "{B3993590-79E6-4BF3-9B82-C26844CCCB38}"
 	ProjectSection(SolutionItems) = preProject
 		Libs\JadeLeap.dll = Libs\JadeLeap.dll
 		Libs\vjslib.dll = Libs\vjslib.dll
@@ -13,23 +13,31 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.Common", "PersonalAssistant.Services.Common\PersonalAssistant.Services.Common.csproj", "{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Client", "PersonalAssistant.Client\PersonalAssistant.Client.csproj", "{F69F6CA9-CEED-4EC5-A141-761BF3A75614}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Common", "PersonalAssistant.Common\PersonalAssistant.Common.csproj", "{AD7329BD-160C-4404-9224-B6143DC1319F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.DataContract", "PersonalAssistant.Services.DataContract\PersonalAssistant.Services.DataContract.csproj", "{56D62665-E97D-4A14-A6D1-1BF425891760}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceRegistration", "ServiceRegistration", "{BC0BF904-E3EC-4D26-8A9E-19174E29D1B4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_ServiceRegistration", "2_ServiceRegistration", "{BC0BF904-E3EC-4D26-8A9E-19174E29D1B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.External.Hotel", "PersonalAssistant.Services.External.Hotel\PersonalAssistant.Services.External.Hotel.csproj", "{40D3A9EF-705E-46EE-B2A5-D2D8DF84E1D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.External.Transport", "PersonalAssistant.Services.External.Transport\PersonalAssistant.Services.External.Transport.csproj", "{2756F039-3A5C-4C42-95F7-4964E3C75BD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.External.DataContract", "PersonalAssistant.Services.External.DataContract\PersonalAssistant.Services.External.DataContract.csproj", "{A0242DFF-666E-456D-8619-45E549BDCE1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.External.Messages", "PersonalAssistant.Services.External.DataContract\PersonalAssistant.Services.External.Messages.csproj", "{A0242DFF-666E-456D-8619-45E549BDCE1A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Client.UI", "PersonalAssistant.Client.UI\PersonalAssistant.Client.UI.csproj", "{619958E8-6CA0-4D64-88AD-F63EB57FB0B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.External.TouristAttraction", "PersonalAssistant.Services.External.TouristAttraction\PersonalAssistant.Services.External.TouristAttraction.csproj", "{D9986900-B3F7-4372-B2B1-29FF432A621A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_Client", "1_Client", "{E47AA206-9875-4C79-B125-67EBCC582380}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Services.Messages", "PersonalAssistant.Services.Messages\PersonalAssistant.Services.Messages.csproj", "{29358642-027E-4D82-A30E-9EC54276B91E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_DataContracts", "3_DataContracts", "{B941A33D-3287-48A5-9604-801BF29118F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4_Messages", "4_Messages", "{307A01A9-9D55-44F8-8207-9C825E2D85AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5_ServiceRegistration", "5_ServiceRegistration", "{245F4C7F-C2D2-42E9-B1DF-1EC5C034D976}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +53,6 @@ Global
 		{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F93E2BB-0A14-435E-A65F-30BF2B8E737C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F69F6CA9-CEED-4EC5-A141-761BF3A75614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F69F6CA9-CEED-4EC5-A141-761BF3A75614}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F69F6CA9-CEED-4EC5-A141-761BF3A75614}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F69F6CA9-CEED-4EC5-A141-761BF3A75614}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AD7329BD-160C-4404-9224-B6143DC1319F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AD7329BD-160C-4404-9224-B6143DC1319F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD7329BD-160C-4404-9224-B6143DC1319F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,13 +81,22 @@ Global
 		{D9986900-B3F7-4372-B2B1-29FF432A621A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9986900-B3F7-4372-B2B1-29FF432A621A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9986900-B3F7-4372-B2B1-29FF432A621A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29358642-027E-4D82-A30E-9EC54276B91E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29358642-027E-4D82-A30E-9EC54276B91E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29358642-027E-4D82-A30E-9EC54276B91E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29358642-027E-4D82-A30E-9EC54276B91E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{8634D3C8-C66D-46C2-B6DD-CDEA15D75D08} = {245F4C7F-C2D2-42E9-B1DF-1EC5C034D976}
+		{56D62665-E97D-4A14-A6D1-1BF425891760} = {B941A33D-3287-48A5-9604-801BF29118F9}
 		{40D3A9EF-705E-46EE-B2A5-D2D8DF84E1D9} = {BC0BF904-E3EC-4D26-8A9E-19174E29D1B4}
 		{2756F039-3A5C-4C42-95F7-4964E3C75BD8} = {BC0BF904-E3EC-4D26-8A9E-19174E29D1B4}
+		{A0242DFF-666E-456D-8619-45E549BDCE1A} = {245F4C7F-C2D2-42E9-B1DF-1EC5C034D976}
+		{619958E8-6CA0-4D64-88AD-F63EB57FB0B7} = {E47AA206-9875-4C79-B125-67EBCC582380}
 		{D9986900-B3F7-4372-B2B1-29FF432A621A} = {BC0BF904-E3EC-4D26-8A9E-19174E29D1B4}
+		{29358642-027E-4D82-A30E-9EC54276B91E} = {307A01A9-9D55-44F8-8207-9C825E2D85AB}
 	EndGlobalSection
 EndGlobal
