@@ -24,7 +24,7 @@
             transportEndDateTimePicker.MinDate = DateTime.Today;
             recreationStartDatePicker.MinDate = DateTime.Today;
             recreationEndDatePicker.MinDate = DateTime.Today;
-            
+
             transportStartDateTimePicker.Value = DateTime.Today;
             transportEndDateTimePicker.Value = DateTime.Today.AddDays(3);
 
@@ -97,11 +97,6 @@
             recreationCheckedListBoxActivities.ClearSelected();
         }
 
-        private void FormAgentFormClosed(object sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
         private void ButtonSeachClick(object sender, EventArgs e)
         {
             var request = BuildRequestFromInputs();
@@ -112,6 +107,11 @@
         private void ButtonClearClick(object sender, EventArgs e)
         {
             ClearAllValues();
+        }
+
+        private void FormAgentFormClosed(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

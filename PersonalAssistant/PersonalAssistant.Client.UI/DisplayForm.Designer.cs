@@ -487,6 +487,7 @@
             this.Controls.Add(this.labelCountry);
             this.Name = "DisplayForm";
             this.Text = "Vacation Client";
+            this.FormClosing += this.FormAgentFormClosed;
             this.ResumeLayout(false);
             this.PerformLayout();
 
