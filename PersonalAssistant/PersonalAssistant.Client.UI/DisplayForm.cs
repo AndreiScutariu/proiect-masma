@@ -1,4 +1,6 @@
-﻿namespace PersonalAssistant.Client.UI
+﻿using PersonalAssistant.Services.External.DataContract;
+
+namespace PersonalAssistant.Client.UI
 {
     using System;
     using System.Collections.Generic;
@@ -44,11 +46,12 @@
 
         public IAggregateServicesRequest BuildRequestFromInputs()
         {
+            // TODO: to be removed
             // Location
             var country = transportTextBoxCountry.Text;
             var city = transportTextBoxCity.Text;
             var startDate = transportStartDateTimePicker.Text;
-            var endDate = transportStartDateTimePicker.Text;
+            var endDate = transportEndDateTimePicker.Text;
             var numberOfRooms = transportTextBoxNoRooms.Text;
             var plpPerRoom = transportTextBoxPlpPerRoom.Text;
             var hotelStart = transportTextBoxHotelStarsLow.Text;
@@ -64,13 +67,41 @@
             IEnumerable<string> listOfTranports = transportTypes.OfType<string>();
 
             // Recreation items
-            var countryEvents = recreationTextBoxCountry.Text;
-            var cityEvents = recreationTextBoxCity.Text;
             var startDateEvents = recreationStartDatePicker.Text;
             var endDateEvents = recreationEndDatePicker.Text;
             var eventsType = recreationCheckedListBoxActivities.CheckedItems;
 
-            return new AggregateServicesRequest();
+            return new AggregateServicesRequest
+            {
+                HotelCountry = transportTextBoxCountry.Text,
+                Location = transportTextBoxCity.Text,
+                IntervalOfDays = new Range<DateTime?>
+                {
+                    Min = transportStartDateTimePicker.Text != null ? DateTime.Parse(transportStartDateTimePicker.Text) : (DateTime?)null,
+                    Max = transportEndDateTimePicker.Text != null ? DateTime.Parse(transportEndDateTimePicker.Text) : (DateTime?)null,
+                },
+                NumberOfRooms = Int32.Parse(transportTextBoxNoRooms.Text),
+                NumberOfPeoplePerRoom = Int32.Parse(transportTextBoxPlpPerRoom.Text),
+                NumberOfStars = new Range<int?>
+                {
+                    Min = transportTextBoxHotelStarsLow.Text != null ? Int32.Parse(transportTextBoxHotelStarsLow.Text) : (int?) null,
+                    Max = transportTextBoxHotelStarsHigh.Text != null ? Int32.Parse(transportTextBoxHotelStarsHigh.Text) : (int?)null
+                },
+                Price = new Range<int?>
+                {
+                    Min = transportTextBoxPriceLowRange.Text != null ? Int32.Parse(transportTextBoxPriceLowRange.Text) : (int?)null,
+                    Max = transportTextBoxPriceHighRange.Text != null ? Int32.Parse(transportTextBoxPriceHighRange.Text) : (int?)null
+                },
+                TransportTypes = transportCheckedListBoxType.CheckedItems.OfType<string>(),
+                YourCountry = transportFromCountryTxtBox.Text,
+                YourCity = transportFromCityTxtBox.Text,
+                EventDate = new Range<DateTime?>()
+                {
+                    Min = recreationStartDatePicker.Text != null ? DateTime.Parse(recreationStartDatePicker.Text) : (DateTime?)null,
+                    Max = recreationEndDatePicker.Text != null ? DateTime.Parse(recreationEndDatePicker.Text) : (DateTime?)null,
+                },
+                ActivityTypes = recreationCheckedListBoxActivities.CheckedItems.OfType<string>(),
+            };
         }
 
         public void ClearAllValues()
@@ -92,8 +123,6 @@
             SetupDefaultValues();
 
             // Recreation items
-            recreationTextBoxCountry.Clear();
-            recreationTextBoxCity.Clear();
             recreationCheckedListBoxActivities.ClearSelected();
         }
 

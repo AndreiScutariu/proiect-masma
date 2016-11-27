@@ -10,6 +10,6 @@
 
         string Location { get; set; }
 
-        Range<int> Price { get; set; }
+        Range<int?> Price { get; set; }
     }
 }

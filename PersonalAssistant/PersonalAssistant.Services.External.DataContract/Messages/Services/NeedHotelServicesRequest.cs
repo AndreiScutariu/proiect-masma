@@ -9,9 +9,11 @@ namespace PersonalAssistant.Services.External.Messages.Messages.Services
     {
         public string HotelCountry { get; set; }
 
-        public Range<int> NumberOfStars { get; set; }
+        public Range<int?> NumberOfStars { get; set; }
 
-        public int NumberOfPeoplePerRoom { get; set; }
+        public int? NumberOfPeoplePerRoom { get; set; }
+
+        public int? NumberOfRooms { get; set; }
 
         public Range<DateTime?> IntervalOfDays { get; set; }
 
@@ -19,6 +21,6 @@ namespace PersonalAssistant.Services.External.Messages.Messages.Services
 
         public string Location { get; set; }
 
-        public Range<int> Price { get; set; }
+        public Range<int?> Price { get; set; }
     }
 }
