@@ -32,7 +32,7 @@
         {
             foreach (var transport in message.Tranports)
             {
-                Console.WriteLine($"Found Transport: {transport.Description}, {transport.YourLocation}.");
+                Console.WriteLine($"Found Transport: {transport.Description}, {transport.TransportFromCity}.");
             }
         }
 

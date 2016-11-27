@@ -5,6 +5,7 @@ namespace PersonalAssistant.Services.Internal.Agents.Base
     using System.Linq;
 
     using jade.core;
+    using jade.core.behaviours;
 
     using Newtonsoft.Json;
 
@@ -63,17 +64,28 @@ namespace PersonalAssistant.Services.Internal.Agents.Base
         {
             base.setup();
 
-            DoRequestForInitialServices();
+            addBehaviour(new RefreshMyServicesBehaviour(this));
         }
-
-        private void DoRequestForInitialServices()
+        
+        private class RefreshMyServicesBehaviour : TickerBehaviour
         {
-            Services = new List<T>();
+            private readonly ServiceProviderAgent<T> agent;
 
-            var serviceProviderAddress = ServiceLocator.Find("__ServiceFinder", this).First();
-            var message = new FindMyServicesRequest { CorrelationId = new Guid(), ServiceType = ServiceType };
+            public RefreshMyServicesBehaviour(ServiceProviderAgent<T> agent)
+                : base(agent, 1000)
+            {
+                this.agent = agent;
+            }
 
-            SendMessage(serviceProviderAddress, message);
+            public override void onTick()
+            {
+                agent.Services = new List<T>();
+
+                var serviceProviderAddress = ServiceLocator.Find("__ServiceFinder", agent).First();
+                var message = new FindMyServicesRequest { CorrelationId = new Guid(), ServiceType = agent.ServiceType };
+
+                agent.SendMessage(serviceProviderAddress, message);
+            }
         }
     }
 }

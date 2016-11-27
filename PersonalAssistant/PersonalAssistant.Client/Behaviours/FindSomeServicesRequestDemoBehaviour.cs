@@ -22,7 +22,7 @@
                                           {
                                               NumberOfStars = new Range<int> { Min = 1, Max = 3 },
                                               Price = new Range<int> { Min = 100, Max = 300 },
-                                              YourLocation = "Home Location 2"
+                                              HotelCountry = "Home Location 2"
                                           };
 
             foreach (var provider in clientSearchVacantionPackageAgent.Providers)

@@ -12,21 +12,21 @@
 
     internal class RefreshServicesCacheBehaviour : TickerBehaviour
     {
-        private readonly ServiceFinderAgent _a;
+        private readonly ServiceFinderAgent agent;
 
-        public RefreshServicesCacheBehaviour(ServiceFinderAgent a)
-            : base(a, 100)
+        public RefreshServicesCacheBehaviour(ServiceFinderAgent agent)
+            : base(agent, 100)
         {
-            _a = a;
+            this.agent = agent;
         }
 
         public override void onTick()
         {
-            _a.ClearExistingServices();
+            agent.ClearExistingServices();
 
             foreach (var content in Directory.GetFiles(Resources.DropFolderPaht).Select(File.ReadAllText))
             {
-                _a.RegisterNewService(JsonConvert.DeserializeObject<Service>(content));
+                agent.RegisterNewService(JsonConvert.DeserializeObject<Service>(content));
             }
         }
     }

@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalAssistant.Console.Startup", "PersonalAssistant.Console.Startup\PersonalAssistant.Console.Startup.csproj", "{E77EAB4E-B0B2-4C44-AD6F-24E035AC389C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{B3993590-79E6-4BF3-9B82-C26844CCCB38}"
 	ProjectSection(SolutionItems) = preProject
 		Libs\JadeLeap.dll = Libs\JadeLeap.dll
@@ -39,10 +37,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E77EAB4E-B0B2-4C44-AD6F-24E035AC389C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E77EAB4E-B0B2-4C44-AD6F-24E035AC389C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E77EAB4E-B0B2-4C44-AD6F-24E035AC389C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E77EAB4E-B0B2-4C44-AD6F-24E035AC389C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8634D3C8-C66D-46C2-B6DD-CDEA15D75D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8634D3C8-C66D-46C2-B6DD-CDEA15D75D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8634D3C8-C66D-46C2-B6DD-CDEA15D75D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
