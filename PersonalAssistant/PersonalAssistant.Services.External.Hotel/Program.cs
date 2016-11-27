@@ -15,7 +15,19 @@
         {
             Console.WriteLine("Enter the name of hotel: ");
 
-            var hotelServiceInformation = new HotelServiceInformation();
+            var hotelServiceInformation = new HotelServiceInformation
+                                              {
+                                                City = "Iasi",
+                                                Country = "Romania",
+                                                DateStart = new DateTime(2016,12,1),
+                                                DateEnd =  new DateTime(2016, 12, 31),
+                                                Description = "Very nice environment",
+                                                Name = "Hotel Unirea",
+                                                NumberOfPeoplePerRoom = 2,
+                                                NumberOfRooms = 10,
+                                                NumberOfStars = 4,
+                                                Price = 120                                                
+                                              };
 
             var service = RegisterService(hotelServiceInformation);
 
