@@ -46,7 +46,7 @@ namespace PersonalAssistant.Client.UI
 
         public IAggregateServicesRequest BuildRequestFromInputs()
         {
-            var model = new AggregateServicesRequest
+            return new AggregateServicesRequest
             {
                 // Hotel
                 HotelCountry = transportTextBoxCountry.Text,
@@ -90,7 +90,6 @@ namespace PersonalAssistant.Client.UI
                     Max = !String.IsNullOrEmpty(activityPriceHighRange.Text) ? Int32.Parse(activityPriceHighRange.Text) : (int?)null
                 },
             };
-            return model;
         }
 
         public void ClearAllValues()
@@ -131,6 +130,8 @@ namespace PersonalAssistant.Client.UI
 
         private void ButtonSeachClick(object sender, EventArgs e)
         {
+            ClearTextBoxMessage();
+
             var request = BuildRequestFromInputs();
 
             SearchActionAgentCallback(request);
@@ -144,6 +145,11 @@ namespace PersonalAssistant.Client.UI
         private void FormAgentFormClosed(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void ClearTextBoxMessage()
+        {
+            textBoxMessages.Clear();
         }
     }
 }

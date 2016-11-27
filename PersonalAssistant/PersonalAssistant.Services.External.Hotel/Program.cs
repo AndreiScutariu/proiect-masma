@@ -17,16 +17,18 @@
 
             var hotelServiceInformation = new HotelServiceInformation
                                               {
-                                                City = "Iasi",
+                                                City = "Piatra Neamt",
                                                 Country = "Romania",
-                                                DateStart = new DateTime(2016,12,1),
+                                                DateStart = new DateTime(2016, 12, 1),
                                                 DateEnd =  new DateTime(2016, 12, 31),
                                                 Description = "Very nice environment",
-                                                Name = "Hotel Unirea",
+                                                Name = "Hotel Ceahlaul",
                                                 NumberOfPeoplePerRoom = 2,
                                                 NumberOfRooms = 10,
-                                                NumberOfStars = 4,
-                                                Price = 120                                                
+                                                NumberOfStars = 3,
+                                                Price = 100,
+                                                RegisterAt = DateTime.Now,
+                                                ServiceType = ServiceType.Hotel
                                               };
 
             var service = RegisterService(hotelServiceInformation);

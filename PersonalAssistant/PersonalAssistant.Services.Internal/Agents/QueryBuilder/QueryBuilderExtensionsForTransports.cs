@@ -1,3 +1,5 @@
+using PersonalAssistant.Services.External.Messages;
+
 namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
 {
     using System;
@@ -13,13 +15,13 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
             this IList<TransportServiceInformation> services,
             INeedTransportServicesRequest message)
         {
-            IEnumerable<TransportServiceInformation> query = new TransportServiceInformation[0];
+            IEnumerable<TransportServiceInformation> query = services;
 
             IEnumerable<Func<TransportServiceInformation, bool>> predicates = SearchPredicates.GetFor(message);
 
             foreach (Func<TransportServiceInformation, bool> predicate in predicates)
             {
-                query = services.Where(predicate);
+                query = query.Where(predicate);
             }
 
             return query;
@@ -71,7 +73,7 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
 
             private static Func<TransportServiceInformation, bool> ActivityPricePredicate(INeedTransportServicesRequest message)
             {
-                if (message.TransportPrice == null || message.TransportPrice.Min == null && message.TransportPrice.Max == null)
+                if (message.TransportPrice.IsNull())
                 {
                     return x => true;
                 }

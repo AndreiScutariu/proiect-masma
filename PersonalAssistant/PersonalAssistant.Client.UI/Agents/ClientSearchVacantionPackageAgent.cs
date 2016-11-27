@@ -28,7 +28,15 @@
         {
             foreach (var hotel in message.Hotels)
             {
-                PrintInfomation($"Found Hotel: {hotel.Description}, {hotel.NumberOfStars}.");
+                PrintInfomation($"Found Hotel: " + 
+                                $"\r\n\tName: {hotel.Name}, " +
+                                $"\r\n\tDescription: {hotel.Description}, " +
+                                $"\r\n\tCountry: {hotel.Country}, " +
+                                $"\r\n\tCity: {hotel.City}, " +
+                                $"\r\n\tNumber of rooms: {hotel.NumberOfRooms}, " +
+                                $"\r\n\tNumber of people per room: {hotel.NumberOfPeoplePerRoom}, " +
+                                $"\r\n\tNumberOfStars: {hotel.NumberOfStars},"+
+                                $"\r\n\tPrice: {hotel.Price}, ");
             }
         }
 
@@ -36,15 +44,26 @@
         {
             foreach (var transport in message.Tranports)
             {
-                PrintInfomation($"Found Transport: {transport.Description}, {transport.TransportFromCity}.");
+                PrintInfomation($"Found Transport:" +
+                                $"\r\n\tName: {transport.Name}, " +
+                                $"\r\n\tDescription: {transport.Description}, " +
+                                $"\r\n\tFrom (Country): {transport.TransportFromCountry}, " +
+                                $"\r\n\tFrom (City): {transport.TransportFromCity}, " +
+                                $"\r\n\tTransport Type: {transport.TransportType}," +
+                                $"\r\n\tPrice: {transport.Price}, ");
             }
         }
 
         public void Handle(FoundTouristAttractionServicesResponse message, AID sender)
         {
-            foreach (var transport in message.Activities)
+            foreach (var activity in message.Activities)
             {
-                PrintInfomation($"Found Tourist: {transport.Description}, {transport.ActivityType}.");
+                PrintInfomation($"Found Activity:" +
+                                $"\r\n\tName: {activity.Name}, " +
+                                $"\r\n\tDescription: {activity.Description}, " +
+                                $"\r\n\tActivity Type: {activity.ActivityType}," +
+                                $"\r\n\tEvent Date: {activity.DateStart} - {activity.DateEnd}," +
+                                $"\r\n\tPrice: {activity.Price}, ");
             }
         }
 

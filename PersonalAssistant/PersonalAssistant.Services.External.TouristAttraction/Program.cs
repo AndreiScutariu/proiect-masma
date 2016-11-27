@@ -18,11 +18,13 @@
                                     ActivityType = "Concert",
                                     DateStart = new DateTime(2016,12,15),
                                     DateEnd = new DateTime(2016,12,15),
-                                    Name = "Chris Brown Romania Tour",
-                                    Description = "Concert Chris Brown",
+                                    Name = "Rihanna Christmass Party",
+                                    Description = "Christmass Party",
                                     Price = 70,
                                     Country = "Romania",
                                     City = "Iasi",
+                                    RegisterAt = DateTime.Now,
+                                    ServiceType = ServiceType.TouristAttraction
                                };
 
             var service = RegisterService(activity);

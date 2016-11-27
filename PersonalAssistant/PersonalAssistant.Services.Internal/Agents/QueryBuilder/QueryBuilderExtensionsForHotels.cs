@@ -1,4 +1,7 @@
-﻿namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
+﻿using System.ComponentModel.Design;
+using PersonalAssistant.Services.External.Messages;
+
+namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
 {
     using System;
     using System.Collections.Generic;
@@ -14,13 +17,13 @@
             this IList<HotelServiceInformation> services,
             INeedHotelServicesRequest message)
         {
-            IEnumerable<HotelServiceInformation> query = new HotelServiceInformation[0];
+            IEnumerable<HotelServiceInformation> query = services;
 
             IEnumerable<Func<HotelServiceInformation, bool>> predicates = SearchPredicates.GetFor(message);
 
             foreach (Func<HotelServiceInformation, bool> predicate in predicates)
             {
-                query = services.Where(predicate);
+                query = query.Where(predicate);
             }
 
             return query;
@@ -41,17 +44,24 @@
 
             private static Func<HotelServiceInformation, bool> NumberOfStarsPredicate(INeedHotelServicesRequest message)
             {
-                if (message.NumberOfStars == null)
+                if (message.NumberOfStars.IsNull())
                 {
                     return x => true;
                 }
-
+                else if (message.NumberOfStars.Min == null && message.NumberOfStars.Max != null)
+                {
+                    return x => message.NumberOfStars.Max >= x.NumberOfStars;
+                }
+                else if (message.NumberOfStars.Min != null && message.NumberOfStars.Max == null)
+                {
+                    return x => message.NumberOfStars.Min <= x.NumberOfStars;
+                }
                 return x => x.NumberOfStars <= message.NumberOfStars.Max && x.NumberOfStars >= message.NumberOfStars.Min;
             }
 
             private static Func<HotelServiceInformation, bool> CountryPredicate(INeedHotelServicesRequest message)
             {
-                if (message.HotelCountry == null)
+                if (String.IsNullOrEmpty(message.HotelCountry))
                 {
                     return x => true;
                 }
@@ -61,7 +71,7 @@
 
             private static Func<HotelServiceInformation, bool> CityPredicate(INeedHotelServicesRequest message)
             {
-                if (message.Location == null)
+                if (String.IsNullOrEmpty(message.Location))
                 {
                     return x => true;
                 }
@@ -71,7 +81,7 @@
 
             private static Func<HotelServiceInformation, bool> IntervalOfTimePredicate(INeedHotelServicesRequest message)
             {
-                if (message.IntervalOfDays == null || message.IntervalOfDays.Min == null && message.IntervalOfDays.Max == null)
+                if (message.IntervalOfDays.IsNull())
                 {
                     return x => true;
                 }
@@ -108,7 +118,7 @@
 
             private static Func<HotelServiceInformation, bool> HotelPricePredicate(INeedHotelServicesRequest message)
             {
-                if (message.HotelPrice == null || message.HotelPrice.Min == null && message.HotelPrice.Max == null)
+                if (message.HotelPrice.IsNull())
                 {
                     return x => true;
                 }

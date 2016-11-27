@@ -1,4 +1,6 @@
-﻿namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
+﻿using PersonalAssistant.Services.External.Messages;
+
+namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
 {
     using System;
     using System.Collections.Generic;
@@ -14,13 +16,13 @@
             this IList<TouristAttractionServiceInformation> services,
             INeedTouristAttractionServicesRequest message)
         {
-            IEnumerable<TouristAttractionServiceInformation> query = new TouristAttractionServiceInformation[0];
+            IEnumerable<TouristAttractionServiceInformation> query = services;
 
             IEnumerable<Func<TouristAttractionServiceInformation, bool>> predicates = SearchPredicates.GetFor(message);
 
             foreach (Func<TouristAttractionServiceInformation, bool> predicate in predicates)
             {
-                query = services.Where(predicate);
+                query = query.Where(predicate);
             }
 
             return query;
@@ -50,7 +52,7 @@
 
             private static Func<TouristAttractionServiceInformation, bool> ActivityDatePredicate(INeedTouristAttractionServicesRequest message)
             {
-                if (message.EventDate == null || message.EventDate.Min == null && message.EventDate.Max == null)
+                if (message.EventDate.IsNull())
                 {
                     return x => true;
                 }
@@ -62,12 +64,12 @@
                 {
                     return x => message.EventDate.Min >= x.DateStart && message.EventDate.Min <= x.DateEnd;
                 }
-                return x => message.EventDate.Min >= x.DateStart && message.EventDate.Max <= x.DateEnd;
+                return x => message.EventDate.Min <= x.DateStart && message.EventDate.Max >= x.DateEnd;
             }
 
             private static Func<TouristAttractionServiceInformation, bool> LocationPredicate(INeedTouristAttractionServicesRequest message)
             {
-                if (message.Location == null)
+                if (String.IsNullOrEmpty(message.Location))
                 {
                     return x => true;
                 }
@@ -77,7 +79,7 @@
 
             private static Func<TouristAttractionServiceInformation, bool> ActivityPricePredicate(INeedTouristAttractionServicesRequest message)
             {
-                if (message.TouristAttractionsPrice == null || message.TouristAttractionsPrice.Min == null && message.TouristAttractionsPrice.Max == null)
+                if (message.TouristAttractionsPrice.IsNull())
                 {
                     return x => true;
                 }

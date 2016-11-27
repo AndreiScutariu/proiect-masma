@@ -17,14 +17,14 @@
                                   {
                                       City = "Iasi",
                                       Country = "Romania",
-                                      Description = "Description",
+                                      Description = "Cheapest way anywhere you go",
                                       Name = "Name",
-                                      Price = 200,
+                                      Price = 50,
                                       RegisterAt = DateTime.Now,
                                       ServiceType = ServiceType.Transport,
-                                      TransportFromCity = "Falticeni",
+                                      TransportFromCity = "Piatra Neamt",
                                       TransportFromCountry = "Romania",
-                                      TransportType = "Plane"
+                                      TransportType = "Rail transportation"
                                   };
 
             var service = RegisterService(information);
