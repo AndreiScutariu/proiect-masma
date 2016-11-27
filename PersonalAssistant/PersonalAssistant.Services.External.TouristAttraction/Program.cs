@@ -13,15 +13,7 @@
     {
         private static void Main(string[] args)
         {
-            var activity = new TouristAttractionServiceInformation
-                               {
-                                   Name = "Activity 1",
-                                   Description = "Chris Brown Concert",
-                                   Location = "Destination",
-                                   Price = 20,
-                                   EventDate = new DateTime(2016, 12, 24),
-                                   ActivityType = "Concert"
-                               };
+            var activity = new TouristAttractionServiceInformation();
 
             var service = RegisterService(activity);
 

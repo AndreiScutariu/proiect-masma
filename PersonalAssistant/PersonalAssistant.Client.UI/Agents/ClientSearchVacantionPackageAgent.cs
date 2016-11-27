@@ -36,7 +36,7 @@
         {
             foreach (var transport in message.Tranports)
             {
-                PrintInfomation($"Found Transport: {transport.Description}, {transport.YourLocation}.");
+                PrintInfomation($"Found Transport: {transport.Description}, {transport.TransportFromCity}.");
             }
         }
 
@@ -44,7 +44,7 @@
         {
             foreach (var transport in message.Activities)
             {
-                PrintInfomation($"Found Transport: {transport.Description}, {transport.ActivityType}.");
+                PrintInfomation($"Found Tourist: {transport.Description}, {transport.ActivityType}.");
             }
         }
 

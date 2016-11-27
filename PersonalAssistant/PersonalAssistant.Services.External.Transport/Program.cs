@@ -15,11 +15,16 @@
         {
             var information = new TransportServiceInformation
                                   {
-                                      Name = "Transport 1",
-                                      Description = "Some transport service",
-                                      Location = "Destination",
-                                      Price = 400,
-                                      YourLocation = "Home Location"
+                                      City = "Iasi",
+                                      Country = "Romania",
+                                      Description = "Description",
+                                      Name = "Name",
+                                      Price = 200,
+                                      RegisterAt = DateTime.Now,
+                                      ServiceType = ServiceType.Transport,
+                                      TransportFromCity = "Falticeni",
+                                      TransportFromCountry = "Romania",
+                                      TransportType = "Plane"
                                   };
 
             var service = RegisterService(information);

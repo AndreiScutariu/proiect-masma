@@ -15,14 +15,7 @@
         {
             Console.WriteLine("Enter the name of hotel: ");
 
-            var hotelServiceInformation = new HotelServiceInformation
-                                              {
-                                                  Name = "Hotel 1",
-                                                  Description = "Some hotel service",
-                                                  Location = "Location 1",
-                                                  NumberOfStars = 3,
-                                                  Price = 100
-                                              };
+            var hotelServiceInformation = new HotelServiceInformation();
 
             var service = RegisterService(hotelServiceInformation);
 

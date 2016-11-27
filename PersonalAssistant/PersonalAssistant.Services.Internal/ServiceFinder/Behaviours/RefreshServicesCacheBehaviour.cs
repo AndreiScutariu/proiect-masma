@@ -15,7 +15,7 @@
         private readonly ServiceFinderAgent _a;
 
         public RefreshServicesCacheBehaviour(ServiceFinderAgent a)
-            : base(a, 1000)
+            : base(a, 100)
         {
             _a = a;
         }

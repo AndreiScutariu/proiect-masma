@@ -99,7 +99,7 @@
 
         private void FormAgentFormClosed(object sender, FormClosedEventArgs e)
         {
-            Environment.Exit(0); // closes all open forms and exits the application
+            Environment.Exit(0);
         }
 
         private void ButtonSeachClick(object sender, EventArgs e)

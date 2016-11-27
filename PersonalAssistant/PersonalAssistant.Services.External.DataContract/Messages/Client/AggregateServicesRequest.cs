@@ -25,7 +25,7 @@ namespace PersonalAssistant.Services.External.DataContract.Messages.Client
 
         public string YourCountry { get; set; }
 
-        public string YourLocation { get; set; }
+        public string YourCity { get; set; }
 
         public IEnumerable<string> TransportTypes { get; set; }
         

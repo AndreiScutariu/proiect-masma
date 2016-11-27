@@ -9,7 +9,6 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
 
     internal static class QueryBuilderExtensionsForTransports
     {
-        //TODO - Refactor this, be more generic
         public static IEnumerable<TransportServiceInformation> GetFor(
             this IList<TransportServiceInformation> services,
             INeedTransportServicesRequest message)
@@ -37,12 +36,12 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
             private static Func<TransportServiceInformation, bool> YourLocationPredicate(
                 INeedTransportServicesRequest message)
             {
-                if (string.IsNullOrEmpty(message.YourLocation))
+                if (string.IsNullOrEmpty(message.YourCountry))
                 {
                     return x => true;
                 }
 
-                return x => x.YourLocation == message.YourLocation;
+                return x => x.TransportFromCity == message.YourCountry;
             }
         }
     }
