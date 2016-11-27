@@ -31,6 +31,7 @@
             public static IEnumerable<Func<HotelServiceInformation, bool>> GetFor(INeedHotelServicesRequest message)
             {
                 yield return NumberOfStarsPredicate(message);
+                yield return NumberOfRoomsPredicate(message);
             }
 
             private static Func<HotelServiceInformation, bool> NumberOfStarsPredicate(INeedHotelServicesRequest message)
@@ -41,6 +42,16 @@
                 }
 
                 return x => x.NumberOfStars <= message.NumberOfStars.Max && x.NumberOfStars >= message.NumberOfStars.Min;
+            }
+
+            private static Func<HotelServiceInformation, bool> NumberOfRoomsPredicate(INeedHotelServicesRequest message)
+            {
+                if (message.NumberOfStars == null)
+                {
+                    return x => true;
+                }
+
+                return x => x.NumberOfRooms >= message.NumberOfPeoplePerRoom;
             }
         }
     }
