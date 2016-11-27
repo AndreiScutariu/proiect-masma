@@ -5,5 +5,7 @@ namespace PersonalAssistant.Services.DataContract.ServiceInformation
     public class HotelServiceInformation : ServiceInformation
     {
         public int NumberOfStars { get; set; }
+
+        public int NumberOfPeoplePerRoom { get; set; }
     }
 }

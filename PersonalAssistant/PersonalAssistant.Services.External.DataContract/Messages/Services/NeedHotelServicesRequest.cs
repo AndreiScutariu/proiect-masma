@@ -1,3 +1,5 @@
+using System;
+
 namespace PersonalAssistant.Services.External.DataContract.Messages.Services
 {
     using PersonalAssistant.Common.Messages;
@@ -5,7 +7,13 @@ namespace PersonalAssistant.Services.External.DataContract.Messages.Services
 
     public class NeedHotelServicesRequest : HeaderMessage, INeedHotelServicesRequest
     {
+        public string HotelCountry { get; set; }
+
         public Range<int> NumberOfStars { get; set; }
+
+        public int NumberOfPeoplePerRoom { get; set; }
+
+        public Range<DateTime?> IntervalOfDays { get; set; }
 
         public string Description { get; set; }
 

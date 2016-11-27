@@ -6,6 +6,8 @@
 
     public interface INeedTouristAttractionServicesRequest : INeedServicesRequest
     {
+        string CountryForAttraction { get; set; }
+
         Range<DateTime?> EventDate { get; set; }
 
         string ActivityType { get; set; }
