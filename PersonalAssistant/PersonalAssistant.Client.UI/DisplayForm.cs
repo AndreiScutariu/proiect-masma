@@ -15,6 +15,11 @@ namespace PersonalAssistant.Client.UI
 
         public void SetupDefaultValues()
         {
+            transportStartDateTimePicker.MinDate = DateTime.Today;
+            transportEndDateTimePicker.MinDate = DateTime.Today;
+            recreationStartDatePicker.MinDate = DateTime.Today;
+            recreationEndDatePicker.MinDate = DateTime.Today;
+            
             transportStartDateTimePicker.Value = DateTime.Today;
             transportEndDateTimePicker.Value = DateTime.Today.AddDays(3);
 
@@ -52,7 +57,7 @@ namespace PersonalAssistant.Client.UI
             var endDate = transportStartDateTimePicker.Text;
             var numberOfRooms = transportTextBoxNoRooms.Text;
             var plpPerRoom = transportTextBoxPlpPerRoom.Text;
-            var hotelStart = transportTextBoxHotelStars.Text;
+            var hotelStart = transportTextBoxHotelStarsLow.Text;
             var lowPriceRange = transportTextBoxPriceLowRange.Text;
             var highPriceRange = transportTextBoxPriceHighRange.Text;
 
@@ -79,7 +84,7 @@ namespace PersonalAssistant.Client.UI
             transportTextBoxCity.Clear();
             transportTextBoxNoRooms.Clear();
             transportTextBoxPlpPerRoom.Clear();
-            transportTextBoxHotelStars.Clear();
+            transportTextBoxHotelStarsLow.Clear();
             transportTextBoxPriceLowRange.Clear();
             transportTextBoxPriceHighRange.Clear();
             

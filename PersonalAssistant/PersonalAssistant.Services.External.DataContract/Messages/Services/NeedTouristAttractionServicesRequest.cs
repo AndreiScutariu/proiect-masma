@@ -13,6 +13,8 @@
 
         public Range<int> Price { get; set; }
 
+        public string CountryForAttraction { get; set; }
+
         public Range<DateTime?> EventDate { get; set; }
 
         public string ActivityType { get; set; }

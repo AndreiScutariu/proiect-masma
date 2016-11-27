@@ -41,7 +41,7 @@
             this.labelNoPeoplePerRoom = new System.Windows.Forms.Label();
             this.transportTextBoxPlpPerRoom = new System.Windows.Forms.TextBox();
             this.labelHotelStars = new System.Windows.Forms.Label();
-            this.transportTextBoxHotelStars = new System.Windows.Forms.TextBox();
+            this.transportTextBoxHotelStarsLow = new System.Windows.Forms.TextBox();
             this.labelPriceRange = new System.Windows.Forms.Label();
             this.transportTextBoxPriceLowRange = new System.Windows.Forms.TextBox();
             this.labelRange = new System.Windows.Forms.Label();
@@ -68,6 +68,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.transportFromCountryTxtBox = new System.Windows.Forms.TextBox();
             this.transportFromCityTxtBox = new System.Windows.Forms.TextBox();
+            this.transportTextBoxHotelStarsHigh = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelCountry
@@ -180,12 +182,12 @@
             this.labelHotelStars.TabIndex = 12;
             this.labelHotelStars.Text = "Hotel Stars";
             // 
-            // transportTextBoxHotelStars
+            // transportTextBoxHotelStarsLow
             // 
-            this.transportTextBoxHotelStars.Location = new System.Drawing.Point(208, 215);
-            this.transportTextBoxHotelStars.Name = "transportTextBoxHotelStars";
-            this.transportTextBoxHotelStars.Size = new System.Drawing.Size(100, 20);
-            this.transportTextBoxHotelStars.TabIndex = 13;
+            this.transportTextBoxHotelStarsLow.Location = new System.Drawing.Point(208, 215);
+            this.transportTextBoxHotelStarsLow.Name = "transportTextBoxHotelStarsLow";
+            this.transportTextBoxHotelStarsLow.Size = new System.Drawing.Size(100, 20);
+            this.transportTextBoxHotelStarsLow.TabIndex = 13;
             // 
             // labelPriceRange
             // 
@@ -202,7 +204,6 @@
             this.transportTextBoxPriceLowRange.Name = "transportTextBoxPriceLowRange";
             this.transportTextBoxPriceLowRange.Size = new System.Drawing.Size(100, 20);
             this.transportTextBoxPriceLowRange.TabIndex = 15;
-            this.transportTextBoxPriceLowRange.Text = "0";
             // 
             // labelRange
             // 
@@ -219,7 +220,6 @@
             this.transportTextBoxPriceHighRange.Name = "transportTextBoxPriceHighRange";
             this.transportTextBoxPriceHighRange.Size = new System.Drawing.Size(100, 20);
             this.transportTextBoxPriceHighRange.TabIndex = 17;
-            this.transportTextBoxPriceHighRange.Text = "0";
             // 
             // labelTransportType
             // 
@@ -422,11 +422,29 @@
             this.transportFromCityTxtBox.Size = new System.Drawing.Size(100, 20);
             this.transportFromCityTxtBox.TabIndex = 41;
             // 
+            // transportTextBoxHotelStarsHigh
+            // 
+            this.transportTextBoxHotelStarsHigh.Location = new System.Drawing.Point(330, 216);
+            this.transportTextBoxHotelStarsHigh.Name = "transportTextBoxHotelStarsHigh";
+            this.transportTextBoxHotelStarsHigh.Size = new System.Drawing.Size(100, 20);
+            this.transportTextBoxHotelStarsHigh.TabIndex = 43;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(313, 219);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(10, 13);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "-";
+            // 
             // DisplayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 633);
+            this.Controls.Add(this.transportTextBoxHotelStarsHigh);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.transportFromCityTxtBox);
             this.Controls.Add(this.transportFromCountryTxtBox);
             this.Controls.Add(this.label2);
@@ -453,7 +471,7 @@
             this.Controls.Add(this.labelRange);
             this.Controls.Add(this.transportTextBoxPriceLowRange);
             this.Controls.Add(this.labelPriceRange);
-            this.Controls.Add(this.transportTextBoxHotelStars);
+            this.Controls.Add(this.transportTextBoxHotelStarsLow);
             this.Controls.Add(this.labelHotelStars);
             this.Controls.Add(this.transportTextBoxPlpPerRoom);
             this.Controls.Add(this.labelNoPeoplePerRoom);
@@ -489,7 +507,7 @@
         private System.Windows.Forms.Label labelNoPeoplePerRoom;
         private System.Windows.Forms.TextBox transportTextBoxPlpPerRoom;
         private System.Windows.Forms.Label labelHotelStars;
-        private System.Windows.Forms.TextBox transportTextBoxHotelStars;
+        private System.Windows.Forms.TextBox transportTextBoxHotelStarsLow;
         private System.Windows.Forms.Label labelPriceRange;
         private System.Windows.Forms.TextBox transportTextBoxPriceLowRange;
         private System.Windows.Forms.Label labelRange;
@@ -516,6 +534,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox transportFromCountryTxtBox;
         private System.Windows.Forms.TextBox transportFromCityTxtBox;
+        private System.Windows.Forms.TextBox transportTextBoxHotelStarsHigh;
+        private System.Windows.Forms.Label label3;
     }
 }
 
