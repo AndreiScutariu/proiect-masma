@@ -35,6 +35,8 @@
                 yield return CityPredicate(message);
                 yield return IntervalOfTimePredicate(message);
                 yield return NumberOfRoomsPredicate(message);
+                yield return NumberOfPlpPerRoomPredicate(message);
+                yield return HotelPricePredicate(message);
             }
 
             private static Func<HotelServiceInformation, bool> NumberOfStarsPredicate(INeedHotelServicesRequest message)
@@ -69,7 +71,7 @@
 
             private static Func<HotelServiceInformation, bool> IntervalOfTimePredicate(INeedHotelServicesRequest message)
             {
-                if (message.IntervalOfDays.Min == null && message.IntervalOfDays.Max == null)
+                if (message.IntervalOfDays == null || message.IntervalOfDays.Min == null && message.IntervalOfDays.Max == null)
                 {
                     return x => true;
                 }
@@ -92,6 +94,33 @@
                 }
 
                 return x => x.NumberOfRooms >= message.NumberOfRooms;
+            }
+
+            private static Func<HotelServiceInformation, bool> NumberOfPlpPerRoomPredicate(INeedHotelServicesRequest message)
+            {
+                if (message.NumberOfPeoplePerRoom == null)
+                {
+                    return x => true;
+                }
+
+                return x => x.NumberOfPeoplePerRoom == message.NumberOfPeoplePerRoom;
+            }
+
+            private static Func<HotelServiceInformation, bool> HotelPricePredicate(INeedHotelServicesRequest message)
+            {
+                if (message.Price == null || message.Price.Min == null && message.Price.Max == null)
+                {
+                    return x => true;
+                }
+                else if (message.Price.Min == null && message.Price.Max != null)
+                {
+                    return x => message.Price.Max >= x.Price;
+                }
+                else if (message.Price.Min != null && message.Price.Max == null)
+                {
+                    return x => message.Price.Min <= x.Price;
+                }
+                return x => x.Price <= message.Price.Max && x.Price >= message.Price.Min;
             }
         }
     }

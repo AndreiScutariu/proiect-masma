@@ -30,10 +30,23 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
             public static IEnumerable<Func<TransportServiceInformation, bool>> GetFor(
                 INeedTransportServicesRequest message)
             {
-                yield return YourLocationPredicate(message);
+                yield return TransportTypePredicate(message);
+                yield return YourCountryPredicate(message);
+                yield return YourCityPredicate(message);
             }
 
-            private static Func<TransportServiceInformation, bool> YourLocationPredicate(
+            private static Func<TransportServiceInformation, bool> TransportTypePredicate(
+                INeedTransportServicesRequest message)
+            {
+                if (!message.TransportTypes.Any())
+                {
+                    return x => true;
+                }
+
+                return x => message.TransportTypes.Contains(x.TransportType);
+            }
+
+            private static Func<TransportServiceInformation, bool> YourCountryPredicate(
                 INeedTransportServicesRequest message)
             {
                 if (string.IsNullOrEmpty(message.YourCountry))
@@ -41,7 +54,18 @@ namespace PersonalAssistant.Services.Internal.Agents.QueryBuilder
                     return x => true;
                 }
 
-                return x => x.TransportFromCity == message.YourCountry;
+                return x => x.TransportFromCountry == message.YourCountry;
+            }
+            
+            private static Func<TransportServiceInformation, bool> YourCityPredicate(
+                INeedTransportServicesRequest message)
+            {
+                if (string.IsNullOrEmpty(message.YourCity))
+                {
+                    return x => true;
+                }
+
+                return x => x.TransportFromCity == message.YourCity;
             }
         }
     }

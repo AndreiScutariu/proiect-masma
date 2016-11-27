@@ -32,6 +32,8 @@
                 INeedTouristAttractionServicesRequest message)
             {
                 yield return ActivityTypePredicate(message);
+                yield return ActivityDatePredicate(message);
+                yield return LocationPredicate(message);
             }
 
             private static Func<TouristAttractionServiceInformation, bool> ActivityTypePredicate(
@@ -43,6 +45,33 @@
                 }
 
                 return x => message.ActivityTypes.ToList().Contains(x.ActivityType);
+            }
+
+            private static Func<TouristAttractionServiceInformation, bool> ActivityDatePredicate(INeedTouristAttractionServicesRequest message)
+            {
+                if (message.EventDate == null || message.EventDate.Min == null && message.EventDate.Max == null)
+                {
+                    return x => true;
+                }
+                else if (message.EventDate.Min == null && message.EventDate.Max != null)
+                {
+                    return x => message.EventDate.Max >= x.DateStart && message.EventDate.Max <= x.DateEnd;
+                }
+                else if (message.EventDate.Min != null && message.EventDate.Max == null)
+                {
+                    return x => message.EventDate.Min >= x.DateStart && message.EventDate.Min <= x.DateEnd;
+                }
+                return x => message.EventDate.Min >= x.DateStart && message.EventDate.Max <= x.DateEnd;
+            }
+
+            private static Func<TouristAttractionServiceInformation, bool> LocationPredicate(INeedTouristAttractionServicesRequest message)
+            {
+                if (message.Location == null)
+                {
+                    return x => true;
+                }
+
+                return x => x.City == message.Location;
             }
         }
     }
