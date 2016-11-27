@@ -8,6 +8,7 @@
     using PersonalAssistant.Common.Agents.Interfaces;
     using PersonalAssistant.Services.DataContract;
     using PersonalAssistant.Services.DataContract.ServiceInformation;
+    using PersonalAssistant.Services.External.DataContract.Contracts.Requests;
     using PersonalAssistant.Services.External.Messages.Contracts.Requests;
     using PersonalAssistant.Services.External.Messages.Contracts.Responses;
     using PersonalAssistant.Services.Internal.Agents.Base;

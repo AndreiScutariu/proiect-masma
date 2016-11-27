@@ -7,6 +7,7 @@ namespace PersonalAssistant.Client.UI
     using System.Linq;
     using System.Windows.Forms;
 
+    using PersonalAssistant.Services.External.Messages;
     using PersonalAssistant.Services.External.Messages.Contracts.Requests;
     using PersonalAssistant.Services.External.Messages.Messages.Client;
 
